@@ -60,6 +60,15 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages/blog`,
+        name: `blog-pages`, 
+      },
+    },
+    `gatsby-transformer-remark`,
+
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
   ],
