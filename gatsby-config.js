@@ -64,10 +64,11 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages/blog`,
-        name: `blog-pages`, 
+        name: `markdown-pages`, 
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
 
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
