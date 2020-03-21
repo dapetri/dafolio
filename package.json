@@ -27,6 +27,7 @@
     "gatsby-plugin-styled-components": "^3.1.21",
     "gatsby-source-filesystem": "^2.1.57",
     "gatsby-transformer-remark": "^2.6.59",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "styled-components": "^5.0.1",
@@ -35,7 +36,9 @@
     "typeface-open-sans": "0.0.75"
   },
   "devDependencies": {
+    "babel-plugin-macros": "^2.8.0",
     "cross-env": "^5.2.0",
+    "tailwind.macro": "^0.5.10",
     "tailwindcss": "^1.2.0"
   }
 }

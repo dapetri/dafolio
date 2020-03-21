@@ -8,8 +8,8 @@ import { Link, graphql } from "gatsby";
 import "./all.sass";
 
 // Components
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/PostContent";
+import Layout from "../components/layout";
+import Content, { HTMLContent } from "../components/postContent";
 
 export const BlogPostTemplate = ({
   content,
