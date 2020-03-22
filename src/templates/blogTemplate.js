@@ -1,6 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Background, SnippetBackground } from "../styles/blog";
+import {
+  Background,
+  SnippetBackground,
+  BlogTitle,
+  SubTitle
+} from "../styles/blog";
 
 // data prop will be injected by the GraphQL query below.
 export default function Template({ data }) {
@@ -9,7 +14,7 @@ export default function Template({ data }) {
   return (
     <Background>
       <SnippetBackground>
-        <h1>{frontmatter.title}</h1>
+        <BlogTitle>{frontmatter.title}</BlogTitle>
         <h2>{frontmatter.date}</h2>
         <div
           className="blog-post-content"
