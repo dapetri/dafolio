@@ -1,20 +1,30 @@
-import React from "react"
-import { graphql } from "gatsby"
-import PostLink from "../../components/post-link"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import PostLink from "../../components/postLink";
+import { Bluesky, ContentContainer } from "../../styles/blogIndex";
 
-const IndexPage = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+//Layout Elements
+import Inner from "../../elements/inner";
 
-  return <div>{Posts}</div>
-}
+const IndexPage = props => {
+  const { data } = props;
+  const { edges: posts } = data.allMarkdownRemark;
 
-export default IndexPage
+  return (
+    <Bluesky>
+      <ContentContainer>
+        <Inner>
+          <Link to="/">
+            <p>Blog</p>
+          </Link>
+          <p>Test</p>
+        </Inner>
+      </ContentContainer>
+    </Bluesky>
+  );
+};
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
@@ -22,14 +32,18 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          timeToRead
           excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             path
             title
+            description
+            background
+            tags
           }
         }
       }
     }
   }
-`
+`;

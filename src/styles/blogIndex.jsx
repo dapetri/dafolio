@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import tw from "tailwind.macro";
 
-const Bluesky = styled.div`
+export const Bluesky = styled.div`
   position: fixed;
   padding: 0;
   margin: 0;
@@ -16,4 +17,8 @@ const Bluesky = styled.div`
   }
   background: linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%);
   clip-path: polygon(0 5%, 100% 15%, 100% 95%, 0 85%);
+`;
+
+export const ContentContainer = styled.div`
+  ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50`};
 `;

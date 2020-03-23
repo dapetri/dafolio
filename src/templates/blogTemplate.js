@@ -12,7 +12,7 @@ import {
   Paragraph,
   BlogLink,
   TextBody
-} from "../styles/blog";
+} from "../styles/blogPost";
 
 // data prop will be injected by the GraphQL query below.
 export default function Template({ data }) {
