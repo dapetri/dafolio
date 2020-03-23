@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "typeface-open-sans";
 import { Link } from "gatsby";
 
 export const Background = styled.div`

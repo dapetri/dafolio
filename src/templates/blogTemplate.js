@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import {
   Background,
   SnippetBackground,
@@ -13,8 +13,6 @@ import {
   BlogLink,
   TextBody
 } from "../styles/blog";
-
-import GlobalStyle from "../styles/global";
 
 // data prop will be injected by the GraphQL query below.
 export default function Template({ data }) {
