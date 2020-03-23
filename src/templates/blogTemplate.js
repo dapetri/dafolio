@@ -1,10 +1,15 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import {
   Background,
   SnippetBackground,
   BlogTitle,
-  SubTitle
+  BlogSection,
+  ContentContainer,
+  Columns,
+  BlogColumn,
+  Paragraph,
+  StyledLink
 } from "../styles/blog";
 
 // data prop will be injected by the GraphQL query below.
@@ -14,12 +19,24 @@ export default function Template({ data }) {
   return (
     <Background>
       <SnippetBackground>
-        <BlogTitle>{frontmatter.title}</BlogTitle>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <BlogSection>
+          <ContentContainer>
+            <Columns>
+              <BlogColumn>
+                <BlogTitle>{frontmatter.title}</BlogTitle>
+                <h2>{frontmatter.date}</h2>
+                <Paragraph>{frontmatter.description}</Paragraph>
+                <div style={{ marginBottom: `1rem` }}>
+                  <StyledLink to="/blog">{`< Back to list`}</StyledLink>
+                </div>
+                <div
+                  className="blog-post-content"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
+              </BlogColumn>
+            </Columns>
+          </ContentContainer>
+        </BlogSection>
       </SnippetBackground>
     </Background>
   );

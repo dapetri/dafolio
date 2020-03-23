@@ -2,7 +2,7 @@
 path: "/blog/default"
 title: "default"
 date: "1999-12-31"
-description: "f"
+description: "Description"
 background: "f"
 tags:
   - x
