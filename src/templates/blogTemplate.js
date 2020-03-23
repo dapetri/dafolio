@@ -4,13 +4,17 @@ import {
   Background,
   SnippetBackground,
   BlogTitle,
+  BlogDate,
   BlogSection,
   ContentContainer,
   Columns,
   BlogColumn,
   Paragraph,
-  StyledLink
+  BlogLink,
+  TextBody
 } from "../styles/blog";
+
+import GlobalStyle from "../styles/global";
 
 // data prop will be injected by the GraphQL query below.
 export default function Template({ data }) {
@@ -24,15 +28,12 @@ export default function Template({ data }) {
             <Columns>
               <BlogColumn>
                 <BlogTitle>{frontmatter.title}</BlogTitle>
-                <h2>{frontmatter.date}</h2>
+                <BlogDate>{frontmatter.date}</BlogDate>
                 <Paragraph>{frontmatter.description}</Paragraph>
                 <div style={{ marginBottom: `1rem` }}>
-                  <StyledLink to="/blog">{`< Back to list`}</StyledLink>
+                  <BlogLink to="/blog">{`< Back to list`}</BlogLink>
                 </div>
-                <div
-                  className="blog-post-content"
-                  dangerouslySetInnerHTML={{ __html: html }}
-                />
+                <TextBody dangerouslySetInnerHTML={{ __html: html }} />
               </BlogColumn>
             </Columns>
           </ContentContainer>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import tw from "tailwind.macro";
 import "typeface-open-sans";
 import { Link } from "gatsby";
 
@@ -12,6 +11,12 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
   background: rgb(219, 112, 147);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: scrollbar;
+  html {
+    scroll-behavior: smooth;
+  }
 `;
 
 export const SnippetBackground = styled.div`
@@ -36,21 +41,11 @@ export const SnippetBackground = styled.div`
     0% 95%,
     0% 0%
   );
-`;
-
-export const TextBody = styled.html`
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-color: #161719;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  overflow-x: inherit;
+  overflow-y: inherit;
+  html {
+    scroll-behavior: smooth;
+  }
 `;
 
 export const BlogSection = styled.section`
@@ -122,11 +117,41 @@ export const BlogTitle = styled.h1`
   text-rendering: optimizelegibility;
   word-break: break-word;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const BlogDate = styled.h2`
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  color: #e07628;
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 `;
 
 export const SubTitle = styled.p`
-  ${tw`text-2xl lg:text-4xl font-sans text-white mt-8 xxl:w-3/4`};
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: rgb(54, 54, 54);
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 31.5px;
+  margin-bottom: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 `;
 
 export const Paragraph = styled.p`
@@ -148,9 +173,10 @@ export const Paragraph = styled.p`
   padding-top: 0px;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 `;
 
-export const StyledLink = styled(Link)`
+export const BlogLink = styled(Link)`
   box-sizing: border-box;
   color: rgb(50, 115, 220);
   &:hover {
@@ -170,4 +196,51 @@ export const StyledLink = styled(Link)`
   text-decoration-thickness: auto;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+`;
+
+export const TextBody = styled.div`
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  h2,
+  h3,
+  p {
+    color: rgb(51, 51, 51);
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,
+      sans-serif;
+    text-rendering: optimizelegibility;
+  }
+
+  h2,
+  h3 {
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 32px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 31.5px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 27px;
+  }
+
+  a {
+    color: #3273dc;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #e07628;
+  }
 `;
