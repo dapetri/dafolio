@@ -7,7 +7,7 @@ import triangle from "../images/triangle.svg";
 export const RotateTitle = ({ title }) => (
   <div>
     <Title>
-      <Rotate>🦠</Rotate> Was
+      <Rotate>🦠</Rotate> {title}
     </Title>
   </div>
 );

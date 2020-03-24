@@ -1,7 +1,14 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import PostLink from "../../components/postLink";
-import { Bluesky, ContentContainer } from "../../styles/blogIndex";
+import {
+  Bluesky,
+  ContentContainer,
+  ProjectsWrapper
+} from "../../styles/blogIndex";
+
+//Layout Components
+import ProjectCard from "../../components/projectCard";
 
 //Layout Elements
 import Inner from "../../elements/inner";
@@ -18,7 +25,20 @@ const IndexPage = props => {
           <Link to="/">
             <RotateTitle title="Blog" />
           </Link>
-          <p>Test</p>
+          <ProjectsWrapper>
+            {posts.map(({ node: post }) => (
+              <ProjectCard
+                key={post.id}
+                title={post.frontmatter.title}
+                link={post.frontmatter.path}
+                date={post.frontmatter.date}
+                ttr={post.timeToRead}
+                bg={post.frontmatter.background}
+              >
+                {post.frontmatter.description}
+              </ProjectCard>
+            ))}
+          </ProjectsWrapper>
         </Inner>
       </ContentContainer>
     </Bluesky>
