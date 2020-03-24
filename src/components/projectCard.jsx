@@ -5,16 +5,7 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 const Wrapper = styled.div`
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  position: relative;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  color: #fff;
+  ${tw`shadow-lg relative no-underline rounded-lg px-8 py-3 md:py-12 text-white`};
   background: ${props => props.bg};
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   &:hover {

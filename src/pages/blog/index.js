@@ -14,34 +14,40 @@ import ProjectCard from "../../components/projectCard";
 import Inner from "../../elements/inner";
 import { RotateTitle } from "../../elements/titles";
 
+import Layout from "../../components/layout";
+
 const IndexPage = props => {
   const { data } = props;
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
-    <Bluesky>
-      <ContentContainer>
-        <Inner>
-          <Link to="/">
-            <RotateTitle title="Blog" />
-          </Link>
-          <ProjectsWrapper>
-            {posts.map(({ node: post }) => (
-              <ProjectCard
-                key={post.id}
-                title={post.frontmatter.title}
-                link={post.frontmatter.path}
-                date={post.frontmatter.date}
-                ttr={post.timeToRead}
-                bg={post.frontmatter.background}
-              >
-                {post.frontmatter.description}
-              </ProjectCard>
-            ))}
-          </ProjectsWrapper>
-        </Inner>
-      </ContentContainer>
-    </Bluesky>
+    <>
+      <Layout />
+      <>
+        <Bluesky />
+        <ContentContainer>
+          <Inner>
+            <Link to="/">
+              <RotateTitle title="Blog" />
+            </Link>
+            <ProjectsWrapper>
+              {posts.map(({ node: post }) => (
+                <ProjectCard
+                  key={post.id}
+                  title={post.frontmatter.title}
+                  link={post.frontmatter.path}
+                  date={post.frontmatter.date}
+                  ttr={post.timeToRead}
+                  bg={post.frontmatter.background}
+                >
+                  {post.frontmatter.description}
+                </ProjectCard>
+              ))}
+            </ProjectsWrapper>
+          </Inner>
+        </ContentContainer>
+      </>
+    </>
   );
 };
 

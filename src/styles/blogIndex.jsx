@@ -24,9 +24,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const ProjectsWrapper = styled.div`
-  flex: 1;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  ${tw`flex flex-wrap justify-between`};
   display: grid;
   gap: 4rem;
   grid-template-columns: repeat(2, 1fr);
