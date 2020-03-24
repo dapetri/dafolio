@@ -5,6 +5,7 @@ import { Bluesky, ContentContainer } from "../../styles/blogIndex";
 
 //Layout Elements
 import Inner from "../../elements/inner";
+import { RotateTitle } from "../../elements/titles";
 
 const IndexPage = props => {
   const { data } = props;
@@ -15,7 +16,7 @@ const IndexPage = props => {
       <ContentContainer>
         <Inner>
           <Link to="/">
-            <p>Blog</p>
+            <RotateTitle title="Blog" />
           </Link>
           <p>Test</p>
         </Inner>
