@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import PostLink from "../../components/postLink";
 import {
   Bluesky,
   ContentContainer,
@@ -13,6 +12,7 @@ import ProjectCard from "../../components/projectCard";
 //Layout Elements
 import Inner from "../../elements/inner";
 import { RotateTitle } from "../../elements/titles";
+import Footer from "../../elements/footer";
 
 import Layout from "../../components/layout";
 
@@ -24,28 +24,30 @@ const IndexPage = props => {
     <>
       <Layout />
       <>
-        <Bluesky />
-        <ContentContainer>
-          <Inner>
-            <Link to="/">
-              <RotateTitle title="Blog" />
-            </Link>
-            <ProjectsWrapper>
-              {posts.map(({ node: post }) => (
-                <ProjectCard
-                  key={post.id}
-                  title={post.frontmatter.title}
-                  link={post.frontmatter.path}
-                  date={post.frontmatter.date}
-                  ttr={post.timeToRead}
-                  bg={post.frontmatter.background}
-                >
-                  {post.frontmatter.description}
-                </ProjectCard>
-              ))}
-            </ProjectsWrapper>
-          </Inner>
-        </ContentContainer>
+        <Bluesky>
+          <ContentContainer>
+            <Inner>
+              <Link to="/">
+                <RotateTitle title="Blog" />
+              </Link>
+              <ProjectsWrapper>
+                {posts.map(({ node: post }) => (
+                  <ProjectCard
+                    key={post.id}
+                    title={post.frontmatter.title}
+                    link={post.frontmatter.path}
+                    date={post.frontmatter.date}
+                    ttr={post.timeToRead}
+                    bg={post.frontmatter.background}
+                  >
+                    {post.frontmatter.description}
+                  </ProjectCard>
+                ))}
+              </ProjectsWrapper>
+            </Inner>
+          </ContentContainer>
+        </Bluesky>
+        <Footer />
       </>
     </>
   );
