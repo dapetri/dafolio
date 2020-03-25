@@ -54,14 +54,13 @@ const Index = props => {
       <Parallax pages={5}>
         <Hero>
           <BigTitle>
-            Hello, <br /> I'm David{" "}
-            <span style={{ "white-space": "nowrap" }}>雷神</span>
+            Hello, <br /> I'm David
           </BigTitle>
-          <Subtitle>I'm not your usual computer sience student.</Subtitle>
+          <Subtitle>I'm not your usual computer science student.</Subtitle>
         </Hero>
         <Projects>
           <Link to="/blog">
-            <RotateTitle>Blog</RotateTitle>
+            <RotateTitle title="Blog" />
           </Link>
           <ProjectsWrapper>
             {posts.map(({ node: post }) => (
@@ -79,9 +78,9 @@ const Index = props => {
           </ProjectsWrapper>
         </Projects>
         <About>
-          <RotateTitle>About</RotateTitle>
+          <RotateTitle title="About" />
           <AboutHero>
-            <Avatar src={avatar} alt="Thorsten Schaeff" />
+            <Avatar src={avatar} alt="David Petri" />
             <AboutSub>
               I'm a web dev enthusiast working with entrepreneurial developers
               on the future of online payments. At Stripe we aim to expand
@@ -116,11 +115,11 @@ const Index = props => {
         </About>
         <Contact>
           <Inner>
-            <RotateTitle>Get in touch!</RotateTitle>
+            <RotateTitle title="Ping me @" />
             <ContactText>
               Find me online:{" "}
               <a
-                href="https://twitter.com/thorwebdev"
+                href="https://twitter.com/dapetridev"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -128,7 +127,7 @@ const Index = props => {
               </a>{" "}
               |{" "}
               <a
-                href="https://www.instagram.com/thorwebdev/"
+                href="https://www.instagram.com/da_petri/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -136,11 +135,19 @@ const Index = props => {
               </a>{" "}
               |{" "}
               <a
-                href="https://www.linkedin.com/in/tschaeff/"
+                href="https://www.linkedin.com/in/dapetri/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 LinkedIn
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.lichess.org/@/DaPetri/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lichess
               </a>
             </ContactText>
           </Inner>

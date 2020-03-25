@@ -68,5 +68,5 @@ export const rotateAnimation = length => css`
 
 export const Rotate = styled.div`
   display: inline-block;
-  animation: ${rotate} 2s linear infinite;
+  animation: ${rotate} 3s linear infinite;
 `;

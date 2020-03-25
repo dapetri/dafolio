@@ -27,7 +27,7 @@ const IndexPage = props => {
         <Bluesky>
           <ContentContainer>
             <Inner>
-              <Link to="/home">
+              <Link to="/">
                 <RotateTitle title="Blog" />
               </Link>
               <ProjectsWrapper>
