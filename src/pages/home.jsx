@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import { Parallax } from "react-spring/addons.cjs";
+import { Parallax } from "react-spring/renderprops-addons.cjs";
 import { Link, graphql } from "gatsby";
 
 // Components
@@ -10,7 +10,7 @@ import ProjectCard from "../components/projectCard";
 
 // Elements
 import Inner from "../elements/inner";
-import { Title, BigTitle, Subtitle } from "../elements/titles";
+import { RotateTitle, BigTitle, Subtitle } from "../elements/titles";
 import Footer from "../elements/footer";
 
 // Views
@@ -54,16 +54,14 @@ const Index = props => {
       <Parallax pages={5}>
         <Hero>
           <BigTitle>
-            Hello, <br /> I'm Thor{" "}
+            Hello, <br /> I'm David{" "}
             <span style={{ "white-space": "nowrap" }}>雷神</span>
           </BigTitle>
-          <Subtitle>
-            I empower developers to grow the GDP of the Internet.
-          </Subtitle>
+          <Subtitle>I'm not your usual computer sience student.</Subtitle>
         </Hero>
         <Projects>
           <Link to="/blog">
-            <Title>Blog</Title>
+            <RotateTitle>Blog</RotateTitle>
           </Link>
           <ProjectsWrapper>
             {posts.map(({ node: post }) => (
@@ -81,7 +79,7 @@ const Index = props => {
           </ProjectsWrapper>
         </Projects>
         <About>
-          <Title>About</Title>
+          <RotateTitle>About</RotateTitle>
           <AboutHero>
             <Avatar src={avatar} alt="Thorsten Schaeff" />
             <AboutSub>
@@ -118,7 +116,7 @@ const Index = props => {
         </About>
         <Contact>
           <Inner>
-            <Title>Get in touch!</Title>
+            <RotateTitle>Get in touch!</RotateTitle>
             <ContactText>
               Find me online:{" "}
               <a

@@ -34,19 +34,7 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: `#141821`, //config.backgroundColor
         theme_color: `#f6ad55`, //config.themeColor
-        display: `standalone`,
-        icons: [
-          {
-            src: `/favicons/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`
-          }
-        ]
+        display: `standalone`
       }
     },
     {
