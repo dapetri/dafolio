@@ -13,7 +13,7 @@ const Footer = () => (
     <a href="https://www.lekoarts.de" target="_blank" rel="noopener noreferrer">
       LekoArts
     </a>
-    , extended to <Link to="/dafolio">blog</Link> by{" "}
+    , extended to <Link to="/blog">blog</Link> by{" "}
     <a href="http://twitter.com/dapetridev">DaPetri</a> | View the sauce on{" "}
     <a
       href="https://github.com/dapetri/dafolio"
