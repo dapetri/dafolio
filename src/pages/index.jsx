@@ -31,7 +31,8 @@ import {
   JavaCanvas,
   PythonCanvas,
   CCanvas,
-  CxxCanvas
+  CxxCanvas,
+  JGU
 } from "../styles/canvas";
 
 const AboutHero = styled.div`
@@ -103,12 +104,13 @@ const Index = props => {
               software development and love coding in <JavaCanvas />
               , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
               .&nbsp; In addition I hold a Bachelor of Science in Management and
-              Economics from the University of Mainz.
+              Economics from the University of Mainz&nbsp;
+              <JGU />.
             </AboutSub>
           </AboutHero>
           <AboutDesc>
             I believe that through hard work, dedication and coding your fingers
-            bloody
+            bloody big things rocks can be moved and big things accomplished.
           </AboutDesc>
         </About>
         <Contact>

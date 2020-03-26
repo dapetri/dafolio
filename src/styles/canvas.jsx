@@ -4,6 +4,7 @@ import java from "../images/java.png";
 import python from "../images/python.png";
 import c from "../images/c.png";
 import cxx from "../images/c++.png";
+import jgu from "../images/jgu.png";
 
 export const KITStyle = styled.text`
   color: rgb(84, 159, 138);
@@ -50,6 +51,15 @@ export const CxxCanvas = styled.canvas`
   width: 45px;
   height: 50px;
   background: url(${cxx}) no-repeat center center;
+  background-size: 40px;
+  position: relative;
+`;
+
+export const JGU = styled.canvas`
+  top: 12px;
+  width: 45px;
+  height: 50px;
+  background: url(${jgu}) no-repeat center center;
   background-size: 40px;
   position: relative;
 `;
