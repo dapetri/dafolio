@@ -23,6 +23,7 @@ import avatar from "../images/me.jpg";
 
 // Styles
 import { ProjectsWrapper } from "../styles/blogIndex";
+import { KITStyle, JavaStyle, PythonStyle } from "../styles/textColors";
 
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-8`};
@@ -34,6 +35,10 @@ const Avatar = styled.img`
 
 const AboutSub = styled.span`
   ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.625;
 `;
 
 const AboutDesc = styled.p`
@@ -82,11 +87,14 @@ const Index = props => {
           <AboutHero>
             <Avatar src={avatar} alt="David Petri" />
             <AboutSub>
-              I'm a web dev enthusiast working with entrepreneurial developers
-              on the future of online payments. At Stripe we aim to expand
-              Internet Commerce by making it easy to process transactions and
-              provide the tools to manage an online business, ultimately
-              increasing the GDP of the Internet.
+              I'm a computer science student at{" "}
+              <KITStyle>Karlsruhe Institute of Technology</KITStyle>. I'm
+              intereseted in algortihm engineering and back-end software
+              development and love coding in <JavaStyle>Java</JavaStyle>,{" "}
+              <PythonStyle>Python</PythonStyle>, C and C++.
+              <br />
+              In addition I hold a Bachelor of Science in Management and
+              Economics from the University of Mainz.
             </AboutSub>
           </AboutHero>
           <AboutDesc>
