@@ -107,27 +107,8 @@ const Index = props => {
             </AboutSub>
           </AboutHero>
           <AboutDesc>
-            We believe that enabling more transactions is a problem rooted in
-            code and design, not finance. Stripe is built for developers,
-            makers, and creators. Interested in building Stripe around the
-            globe? Go to{" "}
-            <a
-              href="https://medium.com/stripe-stories"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              our Medium page
-            </a>{" "}
-            to find out more and don't hesitate to reach out if you're
-            interested in{" "}
-            <a
-              href="https://stripe.com/jobs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              any open position
-            </a>
-            .
+            I believe that through hard work, dedication and coding your fingers
+            bloody
           </AboutDesc>
         </About>
         <Contact>
