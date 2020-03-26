@@ -23,7 +23,16 @@ import avatar from "../images/me.jpg";
 
 // Styles
 import { ProjectsWrapper } from "../styles/blogIndex";
-import { KITStyle, JavaStyle, PythonStyle } from "../styles/textColors";
+import { KITStyle } from "../styles/canvas";
+
+// Canvas Styles
+import {
+  KITCanvas,
+  JavaCanvas,
+  PythonCanvas,
+  CCanvas,
+  CxxCanvas
+} from "../styles/canvas";
 
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center mt-8`};
@@ -88,12 +97,12 @@ const Index = props => {
             <Avatar src={avatar} alt="David Petri" />
             <AboutSub>
               I'm a computer science student at{" "}
-              <KITStyle>Karlsruhe Institute of Technology</KITStyle>. I'm
-              intereseted in algortihm engineering and back-end software
-              development and love coding in <JavaStyle>Java</JavaStyle>,{" "}
-              <PythonStyle>Python</PythonStyle>, C and C++.
-              <br />
-              In addition I hold a Bachelor of Science in Management and
+              <KITStyle>Karlsruhe Institute of Technology</KITStyle>
+              <KITCanvas />
+              .&nbsp; I'm intereseted in algortihm engineering and back-end
+              software development and love coding in <JavaCanvas />
+              , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
+              .&nbsp; In addition I hold a Bachelor of Science in Management and
               Economics from the University of Mainz.
             </AboutSub>
           </AboutHero>
