@@ -2,7 +2,62 @@ import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import { Parallax } from "react-spring/renderprops-addons.cjs";
+import { Link, graphql } from "gatsby";
+
+// Components
 import Layout from "../components/layout";
+import ProjectCard from "../components/projectCard";
+
+// Elements
+import Inner from "../elements/inner";
+import { RotateTitle, BigTitle, Subtitle } from "../elements/titles";
+import Footer from "../elements/footer";
+
+// Views
+import Hero from "../views/hero";
+import Projects from "../views/projects";
+import About from "../views/about";
+import Contact from "../views/contact";
+
+import avatar from "../images/me.jpg";
+
+// Styles
+import { ProjectsWrapper } from "../styles/blogIndex";
+import { KITStyle } from "../styles/canvas";
+
+// Canvas Styles
+import {
+  KITCanvas,
+  JavaCanvas,
+  PythonCanvas,
+  CCanvas,
+  CxxCanvas,
+  JGU
+} from "../styles/canvas";
+
+const AboutHero = styled.div`
+  ${tw`flex flex-col lg:flex-row items-center mt-8`};
+`;
+
+const Avatar = styled.img`
+  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+`;
+
+const AboutSub = styled.span`
+  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.625;
+`;
+
+const AboutDesc = styled.p`
+  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
+`;
+
+const ContactText = styled.p`
+  ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
+`;
 
 const Index = props => {
   const { data } = props;
@@ -11,6 +66,19 @@ const Index = props => {
   return (
     <>
       <Layout />
+      <Parallax pages={4}>
+        <Hero>
+          <BigTitle>
+            Hello, <br /> I'm David
+          </BigTitle>
+          <Subtitle>I'm not your usual computer science student.</Subtitle>
+        </Hero>
+        <Projects>
+          <Link to="/blog">
+            <RotateTitle title="Blog" />
+          </Link>
+        </Projects>
+      </Parallax>
     </>
   );
 };
