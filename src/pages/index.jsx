@@ -110,7 +110,9 @@ const Index = props => {
           </AboutHero>
           <AboutDesc>
             I believe that through hard work, dedication and coding your fingers
-            bloody big things rocks can be moved and big things accomplished.
+            bloody rocks can be moved and big things accomplished. If you're
+            looking for just a coder like me don't hesitate to{" "}
+            <a>get in touch</a>.
           </AboutDesc>
         </About>
         <Contact>
