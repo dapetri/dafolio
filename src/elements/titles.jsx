@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Rotate } from "../styles/animations";
 import tw from "tailwind.macro";
-import triangle from "../images/triangle.svg";
 
 export const RotateTitle = ({ title }) => (
   <div>
