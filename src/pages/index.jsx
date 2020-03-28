@@ -66,18 +66,36 @@ const Index = props => {
   return (
     <>
       <Layout />
-      <Parallax pages={4}>
-        <Hero>
-          <BigTitle>
-            Hello, <br /> I'm David
-          </BigTitle>
-          <Subtitle>I'm not your usual computer science student.</Subtitle>
-        </Hero>
-        <Projects>
-          <Link to="/blog">
-            <RotateTitle title="Blog" />
-          </Link>
-        </Projects>
+      <Parallax pages={2}>
+        <section id="hero">
+          <Hero>
+            <BigTitle>
+              Hello, <br /> I'm David
+            </BigTitle>
+            <Subtitle>I'm not your usual computer science student.</Subtitle>
+          </Hero>
+        </section>
+        <section id="projects">
+          <Projects>
+            <Link to="/blog">
+              <RotateTitle title="Blog" />
+            </Link>
+            <ProjectsWrapper>
+              {posts.map(({ node: post }) => (
+                <ProjectCard
+                  key={post.id}
+                  title={post.frontmatter.title}
+                  link={post.frontmatter.path}
+                  date={post.frontmatter.date}
+                  ttr={post.timeToRead}
+                  bg={post.frontmatter.background}
+                >
+                  {post.frontmatter.description}
+                </ProjectCard>
+              ))}
+            </ProjectsWrapper>
+          </Projects>
+        </section>
       </Parallax>
     </>
   );

@@ -11,11 +11,11 @@ const Projects = ({ children }) => (
   <>
     <DividerMiddle
       bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
-      speed={-0.2}
-      offset={1.1}
-      factor={2}
+      speed={0}
+      offset={0.75}
+      factor={1.7}
     />
-    <Content speed={0.4} offset={1.2} factor={2}>
+    <Content speed={0.4} offset={0.93} factor={2}>
       <Inner>{children}</Inner>
     </Content>
     <Divider speed={0.1} offset={1} factor={2}>
