@@ -28,7 +28,7 @@ const IndexPage = props => {
           <ContentContainer>
             <Inner>
               <Link to="/">
-                <RotateTitle title="Blog" />
+                <RotateTitle>Blog</RotateTitle>
               </Link>
               <ProjectsWrapper>
                 {posts.map(({ node: post }) => (

@@ -1,15 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { Rotate } from "../styles/animations";
+import { rotateAnimation } from "../styles/animations";
 import tw from "tailwind.macro";
+import floppy from "../images/floppy.png";
 
-export const RotateTitle = ({ title }) => (
-  <div>
-    <Title>
-      <Rotate> 💾</Rotate> {title}
-    </Title>
-  </div>
-);
+export const RotateTitle = styled.h1`
+  ${tw`text-5xl lg:text-5xl font-serif text-white mb-8 tracking-wide relative inline-block pl-12 font-normal`};
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  &:after {
+    content: "";
+    width: 23px;
+    height: 23px;
+    background: url(${floppy});
+    position: absolute;
+    background-size: 23px;
+    ${rotateAnimation("5s")};
+    left: 10px;
+    top: 19px;
+  }
+`;
 
 const Title = styled.h1`
   ${tw`text-5xl lg:text-5xl font-serif text-white mb-8 tracking-wide relative inline-block font-normal`};

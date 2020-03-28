@@ -78,7 +78,7 @@ const Index = props => {
         <section id="projects">
           <Projects>
             <Link to="/blog">
-              <RotateTitle title="Blog" />
+              <RotateTitle>Blog</RotateTitle>
             </Link>
             <ProjectsWrapper>
               {posts.map(({ node: post }) => (
