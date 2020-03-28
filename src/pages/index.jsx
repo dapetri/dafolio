@@ -66,7 +66,7 @@ const Index = props => {
   return (
     <>
       <Layout />
-      <Parallax pages={2}>
+      <Parallax pages={3}>
         <section id="hero">
           <Hero>
             <BigTitle>
@@ -96,6 +96,32 @@ const Index = props => {
             </ProjectsWrapper>
           </Projects>
         </section>
+        <section id="about">
+          <About>
+            <RotateTitle>About</RotateTitle>
+            <AboutHero>
+              <Avatar src={avatar} alt="David Petri" />
+              <AboutSub>
+                I'm a computer science student at{" "}
+                <KITStyle>Karlsruhe Institute of Technology</KITStyle>
+                <KITCanvas />
+                .&nbsp; I'm intereseted in algortihm engineering and back-end
+                software development and love coding in <JavaCanvas />
+                , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
+                .&nbsp; In addition I hold a Bachelor of Science in Management
+                and Economics from the University of Mainz&nbsp;
+                <JGU />.
+              </AboutSub>
+            </AboutHero>
+            <AboutDesc>
+              I believe that through hard work, dedication and coding your
+              fingers bloody rocks can be moved and big things accomplished. If
+              you're looking for just a coder like me don't hesitate to{" "}
+              <a href="#about">get in touch</a>.
+            </AboutDesc>
+          </About>
+        </section>
+        <section id="contact"></section>
       </Parallax>
     </>
   );

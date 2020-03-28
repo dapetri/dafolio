@@ -13,9 +13,9 @@ const About = ({ children }) => (
       bg="#23262b"
       clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
       speed={0.2}
-      offset={3}
+      offset={2}
     />
-    <Divider speed={0.1} offset={3}>
+    <Divider speed={0.1} offset={2}>
       <UpDown>
         <SVG
           icon="box"
@@ -99,7 +99,7 @@ const About = ({ children }) => (
         top="70%"
       />
     </Divider>
-    <Content speed={0.4} offset={3}>
+    <Content speed={0.4} offset={2}>
       <Inner>{children}</Inner>
     </Content>
   </>
