@@ -36,7 +36,7 @@ import {
 } from "../styles/canvas";
 
 const AboutHero = styled.div`
-  ${tw`flex flex-col lg:flex-row items-center mt-8`};
+  ${tw`flex flex-col lg:flex-row items-center`};
 `;
 
 const Avatar = styled.img`
@@ -66,7 +66,7 @@ const Index = props => {
   return (
     <>
       <Layout />
-      <Parallax pages={3}>
+      <Parallax pages={5}>
         <section id="hero">
           <Hero>
             <BigTitle>
@@ -121,7 +121,48 @@ const Index = props => {
             </AboutDesc>
           </About>
         </section>
-        <section id="contact"></section>
+        <section id="contact">
+          <Contact>
+            <Inner>
+              <RotateTitle>Ping me @</RotateTitle>
+              <ContactText>
+                Find me online:{" "}
+                <a
+                  href="https://twitter.com/dapetridev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Twitter
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://www.instagram.com/da_petri/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://www.linkedin.com/in/dapetri/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://www.lichess.org/@/DaPetri/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lichess
+                </a>
+              </ContactText>
+            </Inner>
+            <Footer />
+          </Contact>
+        </section>
       </Parallax>
     </>
   );
