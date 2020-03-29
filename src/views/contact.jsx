@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import tw from "tailwind.macro";
 import styled from "styled-components";
-import { Divider } from "../elements/dividers";
+import { Divider, DividerContact } from "../elements/dividers";
 import Content from "../elements/content";
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations";
 import { colors } from "../../tailwind";
@@ -26,7 +26,13 @@ const InnerWave = styled.div`
 
 const Contact = ({ children }) => (
   <>
-    <Divider fill="#23262b" speed={0.2} offset={4}>
+    <DividerContact
+      bg="linear-gradient(to right, #ff9966 10%, #ff5e62 100%)"
+      speed={0}
+      offset={3}
+      factor={1}
+    />
+    <Divider fill="#fff" speed={0.2} offset={3}>
       <WaveWrapper>
         <InnerWave>
           <svg
@@ -46,10 +52,11 @@ const Contact = ({ children }) => (
         </InnerWave>
       </WaveWrapper>
     </Divider>
-    <Content speed={0.4} offset={4}>
+    <Content speed={0.4} offset={3}>
       {children}
     </Content>
-    <Divider speed={0.1} offset={4}>
+
+    <Divider speed={0.1} offset={3}>
       <UpDown>
         <SVG
           icon="upDown"

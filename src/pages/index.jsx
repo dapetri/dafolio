@@ -66,7 +66,7 @@ const Index = props => {
   return (
     <>
       <Layout />
-      <Parallax pages={5}>
+      <Parallax pages={4}>
         <section id="hero">
           <Hero>
             <BigTitle>
@@ -117,7 +117,7 @@ const Index = props => {
               I believe that through hard work, dedication and coding your
               fingers bloody rocks can be moved and big things accomplished. If
               you're looking for just a coder like me don't hesitate to{" "}
-              <a href="#about">get in touch</a>.
+              <a href="#contact">get in touch</a>.
             </AboutDesc>
           </About>
         </section>
