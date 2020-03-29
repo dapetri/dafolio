@@ -22,6 +22,18 @@ const wave = keyframes`
   }
 `;
 
+const sin = keyframes`
+from {
+  transform: translateX(0%);
+}
+to {
+  transform: translateX(100%);
+}
+  0% {
+    d: 
+  }
+`;
+
 const upDown = keyframes`
   from {
     transform: translateY(0);
@@ -64,6 +76,10 @@ export const waveAnimation = length => css`
 
 export const rotateAnimation = length => css`
   animation: ${rotate} ${length} linear infinite;
+`;
+
+export const sinAnimation = length => css`
+  animation: ${sin} ${length} linear infinite;
 `;
 
 export const Rotate = styled.div`

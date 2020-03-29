@@ -16,5 +16,5 @@ export const DividerMiddle = styled(Divider)`
 `;
 
 export const DividerContact = styled(Divider)`
-  clip-path: polygon(0 15%, 100% 25%, 100% 85%, 0 75%);
+  clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
 `;
