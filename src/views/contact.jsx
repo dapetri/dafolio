@@ -4,7 +4,7 @@ import tw from "tailwind.macro";
 import styled from "styled-components";
 import { Divider, DividerContact } from "../elements/dividers";
 import Content from "../elements/content";
-import { UpDown, UpDownWide, waveAnimation } from "../styles/animations";
+import { UpDown, UpDownWide, sinAnimation } from "../styles/animations";
 import { colors } from "../../tailwind";
 import SVG from "../components/svg";
 
@@ -25,7 +25,7 @@ const InnerWave = styled.div`
     height: 40vh;
   }
   path {
-    ${waveAnimation("10s")};
+    ${sinAnimation("10s")};
   }
 `;
 
@@ -37,7 +37,7 @@ const Contact = ({ children }) => (
       offset={3}
       factor={1}
     />
-    <Divider fill="rgb(22,23,25)" speed={0} offset={3}>
+    <Divider fill="#fff" speed={0} offset={3}>
       <WaveWrapperTop>
         <InnerWave>
           <svg
@@ -48,9 +48,9 @@ const Contact = ({ children }) => (
             <path>
               <animate
                 attributeName="d"
-                values="M 0 100 Q 250 50 400 200 Q 550 350 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 200 150 400 200 Q 600 250 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 150 350 400 200 Q 650 50 800 300 L 800 0 L 0 0 L 0 100 Z"
+                values="M 0, 85 Q400,50 600,300 T1000,300 Z"
                 repeatCount="indefinite"
-                dur="30s"
+                dur="2s"
               />
             </path>
           </svg>

@@ -23,15 +23,12 @@ const wave = keyframes`
 `;
 
 const sin = keyframes`
-from {
-  transform: translateX(0%);
-}
-to {
-  transform: translateX(100%);
-}
-  0% {
-    d: 
+  from {
+    transform: translateX(0%);
   }
+  to {
+    transform: translateX(0%);
+  }  
 `;
 
 const upDown = keyframes`
