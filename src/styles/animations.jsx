@@ -27,7 +27,7 @@ const sin = keyframes`
     transform: translateX(0%);
   }
   to {
-    transform: translateX(0%);
+    transform: translateX(28.58%);
   }  
 `;
 

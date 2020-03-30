@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import tw from "tailwind.macro";
 import styled from "styled-components";
-import { Divider, DividerContact } from "../elements/dividers";
+import {
+  Divider,
+  DividerContact,
+  DividerFooter,
+  DividerMiddle
+} from "../elements/dividers";
 import Content from "../elements/content";
 import { UpDown, UpDownWide, sinAnimation } from "../styles/animations";
 import { colors } from "../../tailwind";
@@ -37,46 +42,47 @@ const Contact = ({ children }) => (
       offset={3}
       factor={1}
     />
-    <Divider fill="#fff" speed={0} offset={3}>
+    <Divider fill="rgb(22,23,25)" speed={0} offset={3}>
       <WaveWrapperTop>
         <InnerWave>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 800 338.05"
+            viewBox="1000 -120 2500 600"
             preserveAspectRatio="none"
           >
             <path>
               <animate
                 attributeName="d"
-                values="M 0, 85 Q400,50 600,300 T1000,300 Z"
+                values="M 0 0  q 110 -20 180 90  t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0  t 180 0 t 180 0  t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t  180 0 t 180 0 t 180 0 t 180 0 t 90 -90"
                 repeatCount="indefinite"
-                dur="2s"
+                dur="1s"
               />
             </path>
           </svg>
         </InnerWave>
       </WaveWrapperTop>
     </Divider>
-    <Divider fill="rgb(22,23,25)" speed={0.2} offset={3}>
+    <Divider fill="#f4c2c2" speed={0} offset={3}>
       <WaveWrapperBottom>
         <InnerWave>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 800 338.05"
+            viewBox="1000 -150 2500 600"
             preserveAspectRatio="none"
           >
             <path>
               <animate
                 attributeName="d"
-                values="M 0 100 Q 250 50 400 200 Q 550 350 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 200 150 400 200 Q 600 250 800 300 L 800 0 L 0 0 L 0 100 Z;M 0 100 Q 150 350 400 200 Q 650 50 800 300 L 800 0 L 0 0 L 0 100 Z"
+                values="M 0 0  q 110 -20 180 90  t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0  t 180 0 t 180 0  t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t 180 0 t  180 0 t 180 0 t 180 0 t 180 0 t 90 -90"
                 repeatCount="indefinite"
-                dur="30s"
+                dur="1s"
               />
             </path>
           </svg>
         </InnerWave>
       </WaveWrapperBottom>
     </Divider>
+    <DividerFooter bg="#f4c2c2" offset={3}></DividerFooter>
     <Content speed={0.4} offset={3}>
       {children}
     </Content>
