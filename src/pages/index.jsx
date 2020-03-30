@@ -56,7 +56,12 @@ const AboutDesc = styled.p`
 `;
 
 const ContactText = styled.p`
-  ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
+  ${tw`text-white inline font-sans text-xl md:text-2xl lg:text-3xl ml-8`};
+`;
+
+const FooterStyle = styled.footer`
+  ${tw`absolute`};
+  bottom: 0;
 `;
 
 const Index = props => {
@@ -126,7 +131,6 @@ const Index = props => {
             <Inner>
               <RotateTitle>Ping me @</RotateTitle>
               <ContactText>
-                Find me online:{" "}
                 <a
                   href="https://twitter.com/dapetridev"
                   target="_blank"
@@ -160,7 +164,9 @@ const Index = props => {
                 </a>
               </ContactText>
             </Inner>
-            <Footer />
+            <FooterStyle>
+              <Footer />
+            </FooterStyle>
           </Contact>
         </section>
       </Parallax>

@@ -4,7 +4,7 @@ import tw from "tailwind.macro";
 import { Link } from "gatsby";
 
 const FooterStyle = styled.footer`
-  ${tw`text-center text-grey relative pin-b p-6 font-sans text-md lg:text-lg`};
+  ${tw`text-center text-grey pin-b p-6 font-sans text-md lg:text-lg`};
 `;
 
 const Footer = () => (

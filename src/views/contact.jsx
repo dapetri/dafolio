@@ -2,12 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import tw from "tailwind.macro";
 import styled from "styled-components";
-import {
-  Divider,
-  DividerContact,
-  DividerFooter,
-  DividerMiddle
-} from "../elements/dividers";
+import { Divider, DividerContact, DividerFooter } from "../elements/dividers";
 import Content from "../elements/content";
 import { UpDown, UpDownWide, sinAnimation } from "../styles/animations";
 import { colors } from "../../tailwind";
@@ -19,7 +14,7 @@ const WaveWrapperBottom = styled.div`
 `;
 
 const WaveWrapperTop = styled.div`
-  ${tw`relative w-full`};
+  ${tw`relative pin-b w-full`};
   transform: matrix(1, 0, 0, 1, 0, 0);
 `;
 
