@@ -35,6 +35,16 @@ import {
   JGU
 } from "../styles/canvas";
 
+// Smooth Scrolling
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]', {
+    speed: 900,
+    speedAsDuration: true,
+    easing: "easeInOutCubic"
+  });
+}
+
 const AboutHero = styled.div`
   ${tw`flex flex-col lg:flex-row items-center`};
 `;
@@ -57,10 +67,23 @@ const AboutDesc = styled.p`
 
 const ContactText = styled.p`
   ${tw`text-white inline font-sans text-xl md:text-2xl lg:text-3xl ml-8`};
+  a {
+    color: #fddde6;
+  }
+  a:hover {
+    color: #1034a6;
+  }
 `;
 
 const FooterStyle = styled.footer`
   ${tw`absolute`};
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: #1034a6;
+  }
   bottom: 0;
 `;
 
@@ -72,103 +95,103 @@ const Index = props => {
     <>
       <Layout />
       <Parallax pages={4}>
-        <section id="hero">
-          <Hero>
-            <BigTitle>
-              Hello, <br /> I'm David
-            </BigTitle>
-            <Subtitle>I'm not your usual computer science student.</Subtitle>
-          </Hero>
-        </section>
-        <section id="projects">
-          <Projects>
-            <Link to="/blog">
-              <RotateTitle>Blog</RotateTitle>
-            </Link>
-            <ProjectsWrapper>
-              {posts.map(({ node: post }) => (
-                <ProjectCard
-                  key={post.id}
-                  title={post.frontmatter.title}
-                  link={post.frontmatter.path}
-                  date={post.frontmatter.date}
-                  ttr={post.timeToRead}
-                  bg={post.frontmatter.background}
-                >
-                  {post.frontmatter.description}
-                </ProjectCard>
-              ))}
-            </ProjectsWrapper>
-          </Projects>
-        </section>
-        <section id="about">
-          <About>
-            <RotateTitle>About</RotateTitle>
-            <AboutHero>
-              <Avatar src={avatar} alt="David Petri" />
-              <AboutSub>
-                I'm a computer science student at{" "}
-                <KITStyle>Karlsruhe Institute of Technology</KITStyle>
-                <KITCanvas />
-                .&nbsp; I'm intereseted in algortihm engineering and back-end
-                software development and love coding in <JavaCanvas />
-                , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
-                .&nbsp; In addition I hold a Bachelor of Science in Management
-                and Economics from the University of Mainz&nbsp;
-                <JGU />.
-              </AboutSub>
-            </AboutHero>
-            <AboutDesc>
-              I believe that through hard work, dedication and coding your
-              fingers bloody rocks can be moved and big things accomplished. If
-              you're looking for just a coder like me don't hesitate to{" "}
-              <a href="#contact">get in touch</a>.
-            </AboutDesc>
-          </About>
-        </section>
-        <section id="contact">
-          <Contact>
-            <Inner>
-              <RotateTitle>Ping me @</RotateTitle>
-              <ContactText>
-                <a
-                  href="https://twitter.com/dapetridev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Twitter
-                </a>{" "}
-                |{" "}
-                <a
-                  href="https://www.instagram.com/da_petri/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>{" "}
-                |{" "}
-                <a
-                  href="https://www.linkedin.com/in/dapetri/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>{" "}
-                |{" "}
-                <a
-                  href="https://www.lichess.org/@/DaPetri/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lichess
-                </a>
-              </ContactText>
-            </Inner>
-            <FooterStyle>
-              <Footer />
-            </FooterStyle>
-          </Contact>
-        </section>
+        <Hero>
+          <BigTitle id="top">
+            Hello, <br /> I'm David
+          </BigTitle>
+          <Subtitle>I'm not your usual computer science student.</Subtitle>
+        </Hero>
+        <Projects>
+          <Link to="/blog">
+            <RotateTitle>Blog</RotateTitle>
+          </Link>
+          <ProjectsWrapper>
+            {posts.map(({ node: post }) => (
+              <ProjectCard
+                key={post.id}
+                title={post.frontmatter.title}
+                link={post.frontmatter.path}
+                date={post.frontmatter.date}
+                ttr={post.timeToRead}
+                bg={post.frontmatter.background}
+              >
+                {post.frontmatter.description}
+              </ProjectCard>
+            ))}
+          </ProjectsWrapper>
+        </Projects>
+        <About>
+          <RotateTitle>About</RotateTitle>
+          <AboutHero>
+            <Avatar src={avatar} alt="David Petri" />
+            <AboutSub>
+              I'm a computer science student at{" "}
+              <KITStyle>Karlsruhe Institute of Technology</KITStyle>
+              <KITCanvas />
+              .&nbsp; I'm intereseted in algortihm engineering and back-end
+              software development and love coding in <JavaCanvas />
+              , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
+              .&nbsp; In addition I hold a Bachelor of Science in Management and
+              Economics at the University of Mainz&nbsp;
+              <JGU />.
+            </AboutSub>
+          </AboutHero>
+          <AboutDesc>
+            I believe that through hard work, dedication and coding your fingers
+            bloody rocks can be moved and big things accomplished. If you're
+            looking for just a coder like me don't hesitate to{" "}
+            <Link to="/#pingme">get in touch</Link>.
+          </AboutDesc>
+        </About>
+        <Contact>
+          <Inner>
+            <RotateTitle id="pingme">Ping me on:</RotateTitle>
+            <ContactText>
+              <a
+                href="https://twitter.com/dapetridev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.instagram.com/da_petri/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.linkedin.com/in/dapetri/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://www.lichess.org/@/DaPetri/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Lichess
+              </a>{" "}
+              |{" "}
+              <a
+                href="https://github.com/dapetri"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </ContactText>
+          </Inner>
+          <FooterStyle>
+            <Footer />
+          </FooterStyle>
+        </Contact>
       </Parallax>
     </>
   );

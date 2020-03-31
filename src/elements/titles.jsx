@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { rotateAnimation } from "../styles/animations";
 import tw from "tailwind.macro";
@@ -18,11 +17,6 @@ export const RotateTitle = styled.h1`
     left: 10px;
     top: 19px;
   }
-`;
-
-const Title = styled.h1`
-  ${tw`text-5xl lg:text-5xl font-serif text-white mb-8 tracking-wide relative inline-block font-normal`};
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 `;
 
 export const BigTitle = styled.h1`

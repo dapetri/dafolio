@@ -1,7 +1,11 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import styled from "styled-components";
+import tw from "tailwind.macro";
+
 import {
   Bluesky,
+  Bluer,
   ContentContainer,
   ProjectsWrapper
 } from "../../styles/blogIndex";
@@ -10,11 +14,27 @@ import {
 import ProjectCard from "../../components/projectCard";
 
 //Layout Elements
-import Inner from "../../elements/inner";
 import { RotateTitle } from "../../elements/titles";
 import Footer from "../../elements/footer";
 
 import Layout from "../../components/layout";
+
+const FooterStyle = styled.footer`
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  a:hover {
+    color: rgb(206, 118, 146);
+  }
+  bottom: 0;
+`;
+
+const Inner = styled.div`
+  ${tw`w-full xxl:w-2/3 text-center lg:text-left`};
+  margin-top: 0%;
+  margin-bottom: 10%;
+`;
 
 const IndexPage = props => {
   const { data } = props;
@@ -24,7 +44,9 @@ const IndexPage = props => {
     <>
       <Layout />
       <>
+        <Bluer />
         <Bluesky>
+          <Bluer />
           <ContentContainer>
             <Inner>
               <Link to="/">
@@ -47,7 +69,9 @@ const IndexPage = props => {
             </Inner>
           </ContentContainer>
         </Bluesky>
-        <Footer />
+        <FooterStyle>
+          <Footer />
+        </FooterStyle>
       </>
     </>
   );

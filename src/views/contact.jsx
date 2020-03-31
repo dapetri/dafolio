@@ -32,7 +32,7 @@ const InnerWave = styled.div`
 const Contact = ({ children }) => (
   <>
     <DividerContact
-      bg="linear-gradient(to left, #ff9966 10%, #ff5e62 100%)"
+      bg="linear-gradient(to right, #fc5c7d, #6a82fb)"
       speed={0}
       offset={3}
       factor={1}
