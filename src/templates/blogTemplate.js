@@ -20,6 +20,7 @@ export default function Template({ data }) {
   const { frontmatter, html } = markdownRemark;
   return (
     <Background>
+      <title>{frontmatter.title}</title>
       <SnippetBackground>
         <BlogSection>
           <ContentContainer>

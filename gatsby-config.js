@@ -8,19 +8,21 @@ module.exports = {
     // Of course you can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-cara/gatsby-config.js
     // Used for the title template on pages other than the index site
-    siteTitle: `DaPetri`,
+
+    ///currently not working///
+    siteTitle: `dafolio - my news`,
     // Default title of the page
-    siteTitleAlt: `DaPetri - my life`,
+    siteTitleAlt: `dafolio - my news`,
     // Can be used for e.g. JSONLD
-    siteHeadline: `DaPetri - my life`,
+    siteHeadline: `dafolio - my news`,
     // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://dapetri.com`,
+    siteUrl: config.siteUrl + pathPrefix,
     // Used for SEO
-    siteDescription: `A snapshot of me`,
+    siteDescription: `my news`,
     // Will be set on the <html /> tag
     siteLanguage: `en`,
     // Used for og:image and must be placed inside the `static` folder
-    siteImage: `/banner.png`,
+    siteImage: `static/banner.png`,
     // Twitter Handle
     author: `@dapetridev`
   },

@@ -13,10 +13,10 @@ const Footer = () => (
     <a href="https://www.lekoarts.de" target="_blank" rel="noopener noreferrer">
       LekoArts
     </a>{" "}
-    | rebuilt to <Link to="/">dafolio</Link> by{" "}
+    | extended to <Link to="/">dafolio</Link> by{" "}
     <a href="http://twitter.com/dapetridev">DaPetri</a> with help of{" "}
     <a
-      href="https://github.com/tschaeff"
+      href="https://github.com/thorsten-stripe"
       target="_blank"
       rel="noopener noreferrer"
     >

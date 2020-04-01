@@ -44,6 +44,7 @@ const IndexPage = props => {
     <>
       <Layout />
       <>
+        <title>dafolio - my blog</title>
         <Bluer />
         <Bluesky>
           <Bluer />
