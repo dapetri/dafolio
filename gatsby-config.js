@@ -4,9 +4,15 @@ const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
-    // Will be used to generate absolute URLs for og:image etc.
     siteTitle: config.siteTitle,
-    siteUrl: config.siteUrl + pathPrefix
+    siteTitleAlt: config.siteTitle,
+    siteHeadline: config.siteTitleShort,
+    siteUrl: config.siteUrl + pathPrefix,
+    siteDescription: config.siteDescription,
+    siteLanguage: `en`,
+    // siteImage: `/banner.jpg`,
+    author: `@dapetridev`
+    // basePath
   },
 
   // Plugins
