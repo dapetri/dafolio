@@ -5,6 +5,7 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     // Will be used to generate absolute URLs for og:image etc.
+    siteTitleAlt: config.siteTitle,
     siteUrl: config.siteUrl + pathPrefix
   },
 
