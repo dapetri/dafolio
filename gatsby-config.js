@@ -12,7 +12,7 @@ module.exports = {
     siteLanguage: `en`,
     siteImage: `static/banner.png`,
     author: `@dapetridev`,
-    basePath
+    basePath: `/`
   },
 
   // Plugins
