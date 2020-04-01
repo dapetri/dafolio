@@ -10,9 +10,9 @@ module.exports = {
     siteUrl: config.siteUrl + pathPrefix,
     siteDescription: config.siteDescription,
     siteLanguage: `en`,
-    // siteImage: `/banner.jpg`,
-    author: `@dapetridev`
-    // basePath
+    siteImage: `static/banner.png`,
+    author: `@dapetridev`,
+    basePath
   },
 
   // Plugins
