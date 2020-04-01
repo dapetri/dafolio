@@ -137,10 +137,10 @@ const Index = props => {
             </AboutSub>
           </AboutHero>
           <AboutDesc>
-            I believe that through hard work, dedication and coding your fingers
-            bloody rocks can be moved and big things accomplished. If you're
-            looking for just a coder like me don't hesitate to{" "}
-            <Link to="/#pingme">get in touch</Link>.
+            I believe that through hard thinking, dedication and coding your
+            fingers bloody rocks can be moved and big things accomplished. If
+            you're looking for a shrewd problemsolving computer engineer look no
+            further and <Link to="/#pingme">get in touch</Link>.
           </AboutDesc>
         </About>
         <Contact>

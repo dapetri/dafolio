@@ -4,25 +4,8 @@ const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
-    title: `Pandas Eating Lots`,
-    description: `A simple description about pandas eating lots...`,
-    author: `gatsbyjs`,
-    // You can overwrite values here that are used for the SEO component
-    // siteTitle: `DaPetris`,
-    // // Default title of the page
-    // siteTitleAlt: `DaPetri - my life`,
-    // // Can be used for e.g. JSONLD
-    // siteHeadline: `DaPetri - my life`,
     // Will be used to generate absolute URLs for og:image etc.
     siteUrl: config.siteUrl + pathPrefix
-    // Used for SEO
-    siteDescription: `A snapshot of me`,
-    // Will be set on the <html /> tag
-    siteLanguage: `en`,
-    // Used for og:image and must be placed inside the `static` folder
-    siteImage: `/banner.png`,
-    // Twitter Handle
-    author: `@dapetridev`
   },
 
   // Plugins

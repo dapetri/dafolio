@@ -1,14 +1,14 @@
 ---
 path: "/blog/default"
-title: "default"
-date: "1999-12-31"
-description: "Description"
-background: "linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
+title: "Corona Time"
+date: "2020-04-01"
+description: "Surviving COVID-19 quarantine in Barcelona."
+background: "linear-gradient(to right, #cb356b, #bd3f32)"
 tags:
-  - x
-  - c
+  - coronavirus
+  - barcelona
 ---
 
-## Title
+## Week 3
 
 Test

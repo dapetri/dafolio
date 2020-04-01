@@ -99,7 +99,7 @@ const About = ({ children }) => (
         top="70%"
       />
     </Divider>
-    <Content speed={0.4} offset={2}>
+    <Content speed={0.4} offset={2.022}>
       <Inner>{children}</Inner>
     </Content>
   </>
