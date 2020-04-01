@@ -4,17 +4,17 @@ const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
+    title: `Pandas Eating Lots`,
+    description: `A simple description about pandas eating lots...`,
+    author: `gatsbyjs`,
     // You can overwrite values here that are used for the SEO component
-    // Of course you can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-cara/gatsby-config.js
-    // Used for the title template on pages other than the index site
-    siteTitle: `DaPetri`,
-    // Default title of the page
-    siteTitleAlt: `DaPetri - my life`,
-    // Can be used for e.g. JSONLD
-    siteHeadline: `DaPetri - my life`,
+    // siteTitle: `DaPetris`,
+    // // Default title of the page
+    // siteTitleAlt: `DaPetri - my life`,
+    // // Can be used for e.g. JSONLD
+    // siteHeadline: `DaPetri - my life`,
     // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://dapetri.com`,
+    siteUrl: config.siteUrl + pathPrefix
     // Used for SEO
     siteDescription: `A snapshot of me`,
     // Will be set on the <html /> tag
@@ -24,6 +24,8 @@ module.exports = {
     // Twitter Handle
     author: `@dapetridev`
   },
+
+  // Plugins
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
@@ -34,7 +36,19 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: `#141821`, //config.backgroundColor
         theme_color: `#f6ad55`, //config.themeColor
-        display: `standalone`
+        display: `standalone`,
+        icons: [
+          {
+            src: `/favicons/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`
+          },
+          {
+            src: `/favicons/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`
+          }
+        ]
       }
     },
     {

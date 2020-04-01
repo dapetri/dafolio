@@ -8,7 +8,6 @@ module.exports = {
   siteTitleShort: "DaPetri News", // short_name for manifest
   siteUrl: "http://dapetri.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
-  siteLogo: "/logo.png", // Used for SEO and manifest
   siteDescription: "Portfolio and Blog by David Petri",
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
