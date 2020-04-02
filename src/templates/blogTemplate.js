@@ -1,14 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Layout from "../components/layout";
+
 import {
   Background,
   SnippetBackground,
   BlogTitle,
   BlogDate,
-  BlogSection,
   ContentContainer,
-  Columns,
-  BlogColumn,
   Paragraph,
   BlogLink,
   TextBody
@@ -19,26 +18,24 @@ export default function Template({ data }) {
   const { markdownRemark } = data; // data.markdownRemark is property of data that holds all of post data
   const { frontmatter, html } = markdownRemark;
   return (
-    <Background>
+    <>
+      <Layout />
       <title>{frontmatter.title}</title>
-      <SnippetBackground>
-        <BlogSection>
-          <ContentContainer>
-            <Columns>
-              <BlogColumn>
-                <BlogTitle>{frontmatter.title}</BlogTitle>
-                <BlogDate>{frontmatter.date}</BlogDate>
-                <Paragraph>{frontmatter.description}</Paragraph>
-                <div style={{ marginBottom: `1rem` }}>
-                  <BlogLink to="/blog">{`< Back to list`}</BlogLink>
-                </div>
-                <TextBody dangerouslySetInnerHTML={{ __html: html }} />
-              </BlogColumn>
-            </Columns>
-          </ContentContainer>
-        </BlogSection>
-      </SnippetBackground>
-    </Background>
+      <Background />
+      <SnippetBackground />
+      <ContentContainer>
+        <BlogTitle>{frontmatter.title}</BlogTitle>
+        <BlogDate>{frontmatter.date}</BlogDate>
+        <Paragraph>{frontmatter.description}</Paragraph>
+        <div style={{ marginBottom: `2rem` }}>
+          <BlogLink to="/blog">{`< Back to list`}</BlogLink>
+        </div>
+        <TextBody dangerouslySetInnerHTML={{ __html: html }} />
+        <div style={{ marginTop: `4rem` }}>
+          <BlogLink to="/blog">{`< Back to list`}</BlogLink>
+        </div>
+      </ContentContainer>
+    </>
   );
 }
 

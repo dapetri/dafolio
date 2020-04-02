@@ -1,32 +1,22 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
+import tw from "tailwind.macro";
+import { trans } from "../styles/animations";
 
 export const Background = styled.div`
-  position: fixed;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
+  ${tw`fixed`};
+  background: linear-gradient(170deg, #fddde6, #f9ccca, #f4c2c2, #f7bfbe, #efbbcc, #f2bdcd, #fddde6, #f9ccca, #f4c2c2, #f7bfbe, #efbbcc, #f2bdcd, #fddde6, #f9ccca, #f4c2c2, #f7bfbe, #efbbcc, #f2bdcd, #fddde6, #f9ccca, #f4c2c2, #f7bfbe, #efbbcc, #f2bdcd);
+  animation: ${trans} 5s linear infinite;
   width: 100%;
-  height: 100%;
-  background: rgb(219, 112, 147);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -ms-overflow-style: scrollbar;
-  html {
-    scroll-behavior: smooth;
+  height: 200%;
   }
 `;
 
 export const SnippetBackground = styled.div`
-  position: fixed;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  ${tw`fixed w-full h-full`};
   background: #fff;
+
+  overflow-x: hidden;
   clip-path: polygon(
     12% 2%,
     28% 0%,
@@ -40,60 +30,12 @@ export const SnippetBackground = styled.div`
     0% 95%,
     0% 0%
   );
-  overflow-x: inherit;
-  overflow-y: inherit;
-  html {
-    scroll-behavior: smooth;
-  }
-`;
-
-export const BlogSection = styled.section`
-  box-sizing: border-box;
-  display: block;
-  padding-bottom: 48px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 48px;
-  line-height: 24px;
 `;
 
 export const ContentContainer = styled.div`
-  box-sizing: border-box;
-  flex-grow: 1;
-  line-height: 24px;
-  margin-bottom: 0px;
-  margin-left: 24px;
-  margin-right: 24px;
-  margin-top: 0px;
-  max-width: 1344px;
-  position: relative;
-  width: 1344px;
-`;
-
-export const Columns = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  line-height: 24px;
-  margin-bottom: -12px;
-  margin-left: -12px;
-  margin-right: -12px;
-  margin-top: -12px;
-`;
-
-export const BlogColumn = styled.div`
-  box-sizing: border-box;
-  display: block;
-  flex-basis: auto;
-  flex-grow: 0;
-  flex-shrink: 0;
-  line-height: 24px;
-  margin-left: 113.983px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 12px;
+  ${tw`relative leading-normal box-border`};
+  padding: 5% 10%;
   text-rendering: optimizelegibility;
-  width: 1140px;
 `;
 
 export const BlogTitle = styled.h1`
@@ -105,14 +47,7 @@ export const BlogTitle = styled.h1`
   font-size: 40px;
   font-weight: 700;
   line-height: 45px;
-  margin-bottom: 24px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
+
   text-rendering: optimizelegibility;
   word-break: break-word;
   -moz-osx-font-smoothing: grayscale;
@@ -121,6 +56,8 @@ export const BlogTitle = styled.h1`
 
 export const BlogDate = styled.h2`
   box-sizing: border-box;
+  margin-bottom: 24px;
+
   font-size: 16px;
   font-weight: 400;
   color: #e07628;
@@ -141,16 +78,6 @@ export const SubTitle = styled.p`
   font-weight: 600;
   line-height: 31.5px;
   margin-bottom: 16px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  text-rendering: optimizelegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 `;
 
 export const Paragraph = styled.p`

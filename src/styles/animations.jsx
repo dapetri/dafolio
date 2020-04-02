@@ -31,6 +31,15 @@ const sin = keyframes`
   }  
 `;
 
+export const trans = keyframes`
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0%);
+  } 
+`;
+
 const upDown = keyframes`
   from {
     transform: translateY(0);
