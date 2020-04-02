@@ -129,7 +129,7 @@ const Index = props => {
               I'm a computer science student at{" "}
               <KITStyle>Karlsruhe Institute of Technology</KITStyle>
               <KITCanvas />
-              .&nbsp; I'm intereseted in algortihm engineering and back-end
+              .&nbsp; I'm interested in algorithm engineering and back-end
               software development and love coding in <JavaCanvas />
               , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
               .&nbsp; In addition I hold a Bachelor of Science in Management and
@@ -139,9 +139,9 @@ const Index = props => {
           </AboutHero>
           <AboutDesc>
             I believe that through hard thinking, dedication and coding your
-            fingers bloody rocks can be moved and big things accomplished. If
-            you're looking for a shrewd problemsolving computer engineer look no
-            further and <Link to="/#pingme">get in touch</Link>.
+            fingers bloody mountains can be moved and big things accomplished.
+            If you're looking for a shrewd problemsolving computer engineer look
+            no further and <Link to="/#pingme">get in touch</Link>.
           </AboutDesc>
         </About>
         <Contact>
