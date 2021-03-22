@@ -129,10 +129,9 @@ const Index = props => {
               I'm a computer science student at{" "}
               <KITStyle>Karlsruhe Institute of Technology</KITStyle>
               <KITCanvas />
-              .&nbsp; I'm interested in algorithm engineering and back-end
-              software development and love coding in <JavaCanvas />
-              , <PythonCanvas /> , <CCanvas /> and <CxxCanvas />
-              .&nbsp; In addition I hold a Bachelor of Science in Management and
+              .&nbsp; I'm interested in machine learning and algorithm engineering
+              and like to work in <PythonCanvas />, <JavaCanvas />
+              and <CCanvas />.&nbsp; In addition I hold a Bachelor of Science in Management and
               Economics at the University of Mainz&nbsp;
               <JGU />.
             </AboutSub>
