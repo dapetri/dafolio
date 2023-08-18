@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styled, { createGlobalStyle } from "styled-components";
+import Pa from "./Particles";
+import clacon2 from "./clacon2.woff2";
+import { Home } from "./Home";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        //     <Container>
+        //         {/* <Background> */}
+        //         <Pa />
+        //         {/* </Background> */}
+        //         {/* <h1 class="title">Blue and Small</h1>
+        //   <h2 class="subtitle">.is-info .is-small</h2> */}
+        //         <Cont>0</Cont>
+        //     </Container >
+        <>
+            <Style />
+            <Pa />
+            <Home />
+        </>
+    );
 }
 
 export default App;
+
+const Container = styled.div`
+  position: relative;
+`;
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:red;
+`;
+
+const Cont = styled.div`
+  min-height: 200vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+`;
+
+const Style = createGlobalStyle`
+  @font-face {
+    font-family: "clacon2";
+    src: local("clacon2"), url(${clacon2}) format("woff2");
+  }
+`;
