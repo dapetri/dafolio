@@ -1,12 +1,3 @@
-section {
-    flex: 1 0 auto;
-    position: relative;
-    width: 100%;
-    -webkit-transition: all .5s ease-in;
-    -o-transition: all .5s ease-in;
-    transition: all .5s ease-in;
-}
-
 .who_am_I {
     font-family: 'Roboto', sans-serif;
 }
@@ -30,12 +21,6 @@ section {
     text-decoration: none;
 }
 
-.intro_sec {
-    height: calc(100vh - 60px);
-    min-height: 700px;
-    height: 100vh;
-    margin-top: -60px;
-}
 
 @media (max-width:991.98px) {
     .intro_sec {
@@ -233,8 +218,4 @@ section {
 
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
-}
-
-.typewriter-text {
-    color: rgb(32, 236, 83);
 }

@@ -1,29 +1,65 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from 'react';
 import "./Home.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "./content_option";
+import styled from "styled-components";
+
 // import { Link } from "react-router-dom";
 
+var AsciiTable = require('ascii-table')
+
+var table = new AsciiTable()
+
+
+const desc = (w) => {
+    const l = getTextWidth(introdata.description, "clacon2")
+    const t = Math.floor(l / w)
+
+    console.log(l)
+    console.log(w)
+    console.log(t)
+
+    introdata.description.match(/.{1,6}/g).forEach((line) => {
+        table.addRow(line)
+    })
+
+}
+
+const getTextWidth = (text, font) => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    context.font = font || getComputedStyle(document.body).font;
+
+    return context.measureText(text).width;
+}
+// console.log(getTextWidth(introdata.description, "clacon2"))
+
+
+
 export const Home = () => {
+    const [width, setWidth] = useState(0);
+    const elementRef = useRef(null);
+
+    useEffect(() => {
+        setWidth(elementRef.current.offsetWidth);
+    }, []);
+
     return (
         <HelmetProvider>
-            <section id="home" className="home">
+            <Section id="home">
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title> {meta.title}</title>
                     <meta name="description" content={meta.description} />
                 </Helmet>
-                <div className="intro_sec d-block d-lg-flex align-items-center ">
-                    {/* <div
-                        className="h_bg-image order-1 order-lg-2 h-100 "
-                        style={{ backgroundImage: `url(${introdata.your_img_url})` }}
-                    ></div> */}
+                <Intro className="intro_sec d-block d-lg-flex align-items-center">
                     <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
                         <div className="align-self-center ">
                             <div className="intro mx-auto">
-                                <h2 className="mb-1x">{introdata.title}</h2>
-                                <h1 className="fluidz-48 mb-1x typewriter-text">
+                                <IntroH2 className="mb-1x">{introdata.title}</IntroH2>
+                                <IntroH1 className="fluidz-48 mb-1x">
                                     <Typewriter
                                         options={{
                                             strings: [
@@ -37,7 +73,18 @@ export const Home = () => {
                                             deleteSpeed: 10,
                                         }}
                                     />
-                                </h1>
+                                </IntroH1>
+                                <Body ref={elementRef}>
+                                    <pre>
+                                        <code>
+                                            {table.toString()}
+                                            {console.log(width)}
+                                            {desc(width)}
+
+                                        </code>
+                                    </pre>
+
+                                </Body>
                                 {/* <p className="mb-1x">{introdata.description}</p> */}
                                 {/* <div className="intro_btn-action pb-5">
                                     <Link to="/portfolio" className="text_2">
@@ -68,8 +115,43 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </HelmetProvider>
+                    {/* </div> */}
+                </Intro>
+            </Section>
+        </HelmetProvider >
     );
 };
+
+const Section = styled.section`
+    flex: 1 0 auto;
+    position: relative;
+    width: 100%;
+    -webkit-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+`
+
+const Intro = styled.div`
+    height: calc(100vh - 60px);
+    min-height: 700px;
+    height: 100vh;
+    margin-top: 40px;
+    color: #fff;
+`
+
+const IntroH2 = styled.h2`
+    font-family: "clacon2";
+    color: #fff;
+    font-size: 1.5rem;
+
+`
+
+const IntroH1 = styled.h1`
+    color: rgb(32, 236, 83);
+`
+const Body = styled.div`
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    font-family: "clacon2";
+`

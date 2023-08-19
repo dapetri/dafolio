@@ -1,5 +1,5 @@
 import "./App.css";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import Pa from "./Particles";
 import clacon2 from "./clacon2.woff2";
 import { Home } from "./Home";
@@ -24,25 +24,25 @@ function App() {
 
 export default App;
 
-const Container = styled.div`
-  position: relative;
-`;
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color:red;
-`;
+// const Container = styled.div`
+//   position: relative;
+// `;
+// const Background = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color:red;
+// `;
 
-const Cont = styled.div`
-  min-height: 200vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-`;
+// const Cont = styled.div`
+//   min-height: 200vh;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 1;
+// `;
 
 const Style = createGlobalStyle`
   @font-face {

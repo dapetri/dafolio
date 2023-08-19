@@ -1,11 +1,11 @@
 const logotext = "{Initials Here}";
 const meta = {
-    title: "{Your name}",
-    description: "I'm {Your name}, a technologist and cybersecurity enthuist.",
+    title: "David Petri",
+    description: "I'm David Petri, a technologist and cybersecurity enthuist.",
 };
 
 const introdata = {
-    title: "Hi, I'm David",
+    title: "Hello World, I'm David!",
     animated: {
         first: "Computer Scientist",
         second: "Machine Learning Researcher",
