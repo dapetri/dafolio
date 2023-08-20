@@ -5,40 +5,34 @@ import Typewriter from "typewriter-effect";
 import { introdata, meta } from "./content_option";
 import styled from "styled-components";
 
+
 // import { Link } from "react-router-dom";
 
-var AsciiTable = require('ascii-table')
+const bodyFontSize = '16px';
+const bodyFontStyle = 'BlinkMacSystemFont';
+const bodyFontWeight = 'bold';
 
-var table = new AsciiTable()
 
-const desc = (w) => {
-    table.setBorder('|', '-', '+', '+')
-
-    const l = getTextWidth(introdata.description, "14pt clacon2")
-    const t = Math.ceil(l / (w * 0.8))
-    const x = Math.floor(introdata.description.length / t)
-
-    const s = '[\\s\\S]{1,' + x + '}(?!\\S)'
-
-    introdata.description.match(RegExp(s, 'g'), '$&\n').forEach((line) => {
-        table.addRow(line.trim())
-    })
-
-}
-
-const getTextWidth = (text, font) => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-
-    context.font = font || getComputedStyle(document.body).font;
-
-    return context.measureText(text).width;
-}
 
 
 
 export const Home = () => {
     const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
+
+    var AsciiTable = require('ascii-table')
+
+    var table = new AsciiTable()
+    table.setBorder('|', '-', '+', '+')
+
+
+    const s = '[\\s\\S]{1,' + (windowSize.current[0] < 1000 ? '30' : '40') + '}(?!\\S)'
+
+    introdata.description.match(RegExp(s, 'g'), '$&\n').forEach((line) => {
+        table.addRow(line.trim())
+    })
+
+
 
     return (
         <HelmetProvider>
@@ -72,12 +66,11 @@ export const Home = () => {
                                     <pre>
                                         <code>
                                             {table.toString()}
-                                            {desc(windowSize.current[0])}
-
                                         </code>
                                     </pre>
                                 </Body>
-
+                                {/* {desc(windowSize.current[0])} */}
+                                {/* {console.log(body.current)} */}
                                 {/* <p className="mb-1x">{introdata.description}</p> */}
                                 {/* <div className="intro_btn-action pb-5">
                                     <Link to="/portfolio" className="text_2">
@@ -141,13 +134,14 @@ const IntroH2 = styled.h2`
 
 const IntroH1 = styled.h1`
     color: rgb(32, 236, 83);
+    height: 2rem;
 `
 const Body = styled.div`
     height: 100%;
     width: 100%;
-    font-weight: bold;
-    font-family: "BlinkMacSystemFont";
-    font-size: 14pt;
+    font-weight: ${bodyFontWeight};
+    font-family: ${bodyFontStyle};
+    font-size: ${bodyFontSize};
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     text-align:center;
