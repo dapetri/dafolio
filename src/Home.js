@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import "./Home.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
@@ -11,17 +11,17 @@ var AsciiTable = require('ascii-table')
 
 var table = new AsciiTable()
 
-
 const desc = (w) => {
-    const l = getTextWidth(introdata.description, "clacon2")
-    const t = Math.floor(l / w)
+    table.setBorder('|', '-', '+', '+')
 
-    console.log(l)
-    console.log(w)
-    console.log(t)
+    const l = getTextWidth(introdata.description, "14pt clacon2")
+    const t = Math.ceil(l / (w * 0.8))
+    const x = Math.floor(introdata.description.length / t)
 
-    introdata.description.match(/.{1,6}/g).forEach((line) => {
-        table.addRow(line)
+    const s = '[\\s\\S]{1,' + x + '}(?!\\S)'
+
+    introdata.description.match(RegExp(s, 'g'), '$&\n').forEach((line) => {
+        table.addRow(line.trim())
     })
 
 }
@@ -34,17 +34,11 @@ const getTextWidth = (text, font) => {
 
     return context.measureText(text).width;
 }
-// console.log(getTextWidth(introdata.description, "clacon2"))
 
 
 
 export const Home = () => {
-    const [width, setWidth] = useState(0);
-    const elementRef = useRef(null);
-
-    useEffect(() => {
-        setWidth(elementRef.current.offsetWidth);
-    }, []);
+    const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
     return (
         <HelmetProvider>
@@ -74,17 +68,16 @@ export const Home = () => {
                                         }}
                                     />
                                 </IntroH1>
-                                <Body ref={elementRef}>
+                                <Body>
                                     <pre>
                                         <code>
                                             {table.toString()}
-                                            {console.log(width)}
-                                            {desc(width)}
+                                            {desc(windowSize.current[0])}
 
                                         </code>
                                     </pre>
-
                                 </Body>
+
                                 {/* <p className="mb-1x">{introdata.description}</p> */}
                                 {/* <div className="intro_btn-action pb-5">
                                     <Link to="/portfolio" className="text_2">
@@ -153,5 +146,9 @@ const Body = styled.div`
     height: 100%;
     width: 100%;
     font-weight: bold;
-    font-family: "clacon2";
+    font-family: "BlinkMacSystemFont";
+    font-size: 14pt;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    text-align:center;
 `
