@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "./content_option";
 import styled from "styled-components";
-
+import Pa from "./Particles";
 
 // import { Link } from "react-router-dom";
 
@@ -35,44 +35,46 @@ export const Home = () => {
 
 
     return (
-        <HelmetProvider>
-            <Section id="home">
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title> {meta.title}</title>
-                    <meta name="description" content={meta.description} />
-                </Helmet>
-                <Intro className="intro_sec d-block d-lg-flex align-items-center">
-                    <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
-                        <div className="align-self-center ">
-                            <div className="intro mx-auto">
-                                <IntroH2 className="mb-1x">{introdata.title}</IntroH2>
-                                <IntroH1 className="fluidz-48 mb-1x">
-                                    <Typewriter
-                                        options={{
-                                            strings: [
-                                                introdata.animated.first,
-                                                introdata.animated.second,
-                                                introdata.animated.third,
-                                                introdata.animated.fourth,
-                                            ],
-                                            autoStart: true,
-                                            loop: true,
-                                            deleteSpeed: 10,
-                                        }}
-                                    />
-                                </IntroH1>
-                                <Body>
-                                    <pre>
-                                        <code>
-                                            {table.toString()}
-                                        </code>
-                                    </pre>
-                                </Body>
-                                {/* {desc(windowSize.current[0])} */}
-                                {/* {console.log(body.current)} */}
-                                {/* <p className="mb-1x">{introdata.description}</p> */}
-                                {/* <div className="intro_btn-action pb-5">
+        <>
+            <Pa />
+            <HelmetProvider>
+                <Section id="home">
+                    <Helmet>
+                        <meta charSet="utf-8" />
+                        <title> {meta.title}</title>
+                        <meta name="description" content={meta.description} />
+                    </Helmet>
+                    <Intro className="intro_sec d-block d-lg-flex align-items-center">
+                        <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
+                            <div className="align-self-center ">
+                                <div className="intro mx-auto">
+                                    <IntroH2 className="mb-1x">{introdata.title}</IntroH2>
+                                    <IntroH1 className="fluidz-48 mb-1x">
+                                        <Typewriter
+                                            options={{
+                                                strings: [
+                                                    introdata.animated.first,
+                                                    introdata.animated.second,
+                                                    introdata.animated.third,
+                                                    introdata.animated.fourth,
+                                                ],
+                                                autoStart: true,
+                                                loop: true,
+                                                deleteSpeed: 10,
+                                            }}
+                                        />
+                                    </IntroH1>
+                                    <Body>
+                                        <pre>
+                                            <code>
+                                                {table.toString()}
+                                            </code>
+                                        </pre>
+                                    </Body>
+                                    {/* {desc(windowSize.current[0])} */}
+                                    {/* {console.log(body.current)} */}
+                                    {/* <p className="mb-1x">{introdata.description}</p> */}
+                                    {/* <div className="intro_btn-action pb-5">
                                     <Link to="/portfolio" className="text_2">
                                         <div id="button_h" className="ac_btn btn ">
                                             Projects
@@ -98,13 +100,14 @@ export const Home = () => {
                                         </div>
                                     </Link>
                                 </div> */}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {/* </div> */}
-                </Intro>
-            </Section>
-        </HelmetProvider >
+                        {/* </div> */}
+                    </Intro>
+                </Section>
+            </HelmetProvider >
+        </>
     );
 };
 

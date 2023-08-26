@@ -1,23 +1,22 @@
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
-import Pa from "./Particles";
 import clacon2 from "./clacon2.woff2";
 import { Home } from "./Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Map } from "./Map";
+
 
 function App() {
     return (
-        //     <Container>
-        //         {/* <Background> */}
-        //         <Pa />
-        //         {/* </Background> */}
-        //         {/* <h1 class="title">Blue and Small</h1>
-        //   <h2 class="subtitle">.is-info .is-small</h2> */}
-        //         <Cont>0</Cont>
-        //     </Container >
         <>
             <Style />
-            <Pa />
-            <Home />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="cvmap" element={<Map />} />
+
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }
