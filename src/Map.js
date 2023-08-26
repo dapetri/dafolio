@@ -4,12 +4,16 @@ import styled from "styled-components";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwZXRyaSIsImEiOiJjbGxyd2JiOHQwOXphM2pvaHFuM2thMDY2In0.z70kqY7Uv2rcnKvzJClqUQ';
 
-export default Map = () => {
+export const Map = () => {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
-    const [zoom, setZoom] = useState(9);
+    // const [lng, setLng] = useState(-70.9);
+    // const [lat, setLat] = useState(42.35);
+    // const [zoom, setZoom] = useState(9);
+
+    const [lng,] = useState(-70.9);
+    const [lat,] = useState(42.35);
+    const [zoom,] = useState(9);
 
     useEffect(() => {
         if (map.current) return; // initialize map only once
@@ -23,13 +27,12 @@ export default Map = () => {
 
     return (
         <>
-            <MapContainer ref={mapContainer} className="map-container" />
+            <MapContainer ref={mapContainer} />
         </>
     );
 }
 
 const MapContainer = styled.div`
-    min-height: 400px;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 `
