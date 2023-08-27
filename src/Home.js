@@ -5,6 +5,7 @@ import Typewriter from "typewriter-effect";
 import { introdata, meta } from "./content_option";
 import styled from "styled-components";
 import Pa from "./Particles";
+import { Link } from 'react-router-dom';
 
 // import { Link } from "react-router-dom";
 
@@ -32,6 +33,9 @@ export const Home = () => {
         table.addRow(line.trim())
     })
 
+    var linkTable = new AsciiTable()
+    linkTable.setBorder('░', '═', '═', '═')
+    linkTable.addRow("CV MAP")
 
 
     return (
@@ -71,6 +75,21 @@ export const Home = () => {
                                             </code>
                                         </pre>
                                     </Body>
+
+                                    <Space>
+                                        * click *
+                                    </Space>
+                                    <Body>
+                                        <pre>
+                                            <code>
+                                                <Link to="/cvmap">
+                                                    <Button>
+                                                        {linkTable.toString()}
+                                                    </Button>
+                                                </Link>
+                                            </code>
+                                        </pre>
+                                    </Body>
                                     {/* {desc(windowSize.current[0])} */}
                                     {/* {console.log(body.current)} */}
                                     {/* <p className="mb-1x">{introdata.description}</p> */}
@@ -103,7 +122,6 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* </div> */}
                     </Intro>
                 </Section>
             </HelmetProvider >
@@ -141,11 +159,28 @@ const IntroH1 = styled.h1`
 `
 const Body = styled.div`
     height: 100%;
-    width: 100%;
+    width: fit-content;
     font-weight: ${bodyFontWeight};
     font-family: ${bodyFontStyle};
     font-size: ${bodyFontSize};
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     text-align:center;
+    margin: auto;
+`
+
+const Button = styled.button`
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-weight: ${bodyFontWeight};
+    font-family: "clacon2";
+    font-size: ${bodyFontSize};
+`
+
+const Space = styled.div`
+    text-align:center;
+    height: 0.3rem;
+    font-style: italic;
+    font-size: 12px;
 `
