@@ -11,9 +11,9 @@ export const Map = () => {
     // const [lat, setLat] = useState(42.35);
     // const [zoom, setZoom] = useState(9);
 
-    const [lng,] = useState(-70.9);
-    const [lat,] = useState(42.35);
-    const [zoom,] = useState(9);
+    const [lng,] = useState(8.4037);
+    const [lat,] = useState(49.0069);
+    const [zoom,] = useState(12.5);
 
     useEffect(() => {
         if (map.current) return; // initialize map only once
