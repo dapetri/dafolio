@@ -4,10 +4,9 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "./content_option";
 import styled from "styled-components";
-import Pa from "./Particles";
+import ZerosOnes from "./components/particles/ZerosOnes";
 import { Link } from 'react-router-dom';
 
-// import { Link } from "react-router-dom";
 
 const bodyFontSize = '16px';
 const bodyFontStyle = 'BlinkMacSystemFont';
@@ -40,88 +39,53 @@ export const Home = () => {
 
     return (
         <>
-            <Pa />
             <HelmetProvider>
+            <ZerosOnes />
                 <Section id="home">
                     <Helmet>
                         <meta charSet="utf-8" />
                         <title> {meta.title}</title>
                         <meta name="description" content={meta.description} />
                     </Helmet>
-                    <Intro className="intro_sec d-block d-lg-flex align-items-center">
-                        <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
-                            <div className="align-self-center ">
-                                <div className="intro mx-auto">
-                                    <IntroH2 className="mb-1x">{introdata.title}</IntroH2>
-                                    <IntroH1 className="fluidz-48 mb-1x">
-                                        <Typewriter
-                                            options={{
-                                                strings: [
-                                                    introdata.animated.first,
-                                                    introdata.animated.second,
-                                                    introdata.animated.third,
-                                                    introdata.animated.fourth,
-                                                ],
-                                                autoStart: true,
-                                                loop: true,
-                                                deleteSpeed: 10,
-                                            }}
-                                        />
-                                    </IntroH1>
-                                    <Body>
-                                        <pre>
-                                            <code>
-                                                {table.toString()}
-                                            </code>
-                                        </pre>
-                                    </Body>
+                    <Intro>
+                        <IntroH2 className="mb-1x">{introdata.title}</IntroH2>
+                        <IntroH1 className="fluidz-48 mb-1x">
+                            <Typewriter
+                                options={{
+                                    strings: [
+                                        introdata.animated.first,
+                                        introdata.animated.second,
+                                        introdata.animated.third,
+                                        introdata.animated.fourth,
+                                    ],
+                                    autoStart: true,
+                                    loop: true,
+                                    deleteSpeed: 10,
+                                }}
+                            />
+                        </IntroH1>
+                        <Body>
+                            <pre>
+                                <code>
+                                    {table.toString()}
+                                </code>
+                            </pre>
+                        </Body>
 
-                                    <Space>
-                                        * click *
-                                    </Space>
-                                    <Body>
-                                        <pre>
-                                            <code>
-                                                <Link to="/cvmap">
-                                                    <Button>
-                                                        {linkTable.toString()}
-                                                    </Button>
-                                                </Link>
-                                            </code>
-                                        </pre>
-                                    </Body>
-                                    {/* {desc(windowSize.current[0])} */}
-                                    {/* {console.log(body.current)} */}
-                                    {/* <p className="mb-1x">{introdata.description}</p> */}
-                                    {/* <div className="intro_btn-action pb-5">
-                                    <Link to="/portfolio" className="text_2">
-                                        <div id="button_h" className="ac_btn btn ">
-                                            Projects
-                                            <div className="ring one"></div>
-                                            <div className="ring two"></div>
-                                            <div className="ring three"></div>
-                                        </div>
+                        <Space>
+                            * click *
+                        </Space>
+                        <Body>
+                            <pre>
+                                <code>
+                                    <Link to="/cvmap">
+                                        <Button>
+                                            {linkTable.toString()}
+                                        </Button>
                                     </Link>
-                                    <Link to="/about">
-                                        <div id="button_h" className="ac_btn btn">
-                                            About Me
-                                            <div className="ring one"></div>
-                                            <div className="ring two"></div>
-                                            <div className="ring three"></div>
-                                        </div>
-                                    </Link>
-                                    <Link to="/contact">
-                                        <div id="button_h" className="ac_btn btn">
-                                            Contact Me
-                                            <div className="ring one"></div>
-                                            <div className="ring two"></div>
-                                            <div className="ring three"></div>
-                                        </div>
-                                    </Link>
-                                </div> */}
-                                </div>
-                            </div>
-                        </div>
+                                </code>
+                            </pre>
+                        </Body>
                     </Intro>
                 </Section>
             </HelmetProvider >
@@ -132,33 +96,35 @@ export const Home = () => {
 const Section = styled.section`
     flex: 1 0 auto;
     position: relative;
-    width: 100%;
     -webkit-transition: all .5s ease-in;
     -o-transition: all .5s ease-in;
     transition: all .5s ease-in;
 `
 
-const Intro = styled.div`
-    height: calc(100vh - 60px);
-    min-height: 700px;
-    height: 100vh;
-    margin-top: 40px;
+const Intro = styled.body`
     color: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
 `
 
 const IntroH2 = styled.h2`
     font-family: "clacon2";
     color: #fff;
     font-size: 1.5rem;
-
+    margin-left: 5%;
+    margin-right: 5%;
 `
 
 const IntroH1 = styled.h1`
     color: rgb(32, 236, 83);
     height: 2rem;
+    margin-left: 5%;
+    margin-right: 5%;
 `
 const Body = styled.div`
-    height: 100%;
     width: fit-content;
     font-weight: ${bodyFontWeight};
     font-family: ${bodyFontStyle};
