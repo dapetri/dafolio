@@ -3,7 +3,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./Particles.css";
 
-const Pa = () => {
+const ZerosOnes = () => {
     const particlesInit = useCallback(async (engine) => {
         // console.log(engine);
         // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -197,48 +197,10 @@ const Pa = () => {
                         width: 0,
                         height: 0,
                     },
-                    // particles: {
-                    //     shape: {
-                    //         type: "images",
-                    //         options: {
-                    //             images: [
-                    //                 {
-                    //                     // src: "https://pytorch.org/assets/images/pytorch-logo.png",
-                    //                     src: "https://cdn.icon-icons.com/icons2/3404/PNG/512/debug_icon_215819.png",
-                    //                 },
-                    //             ],
-                    //         },
-                    //     },
-                    //     size: {
-                    //         value: 40,
-                    //     },
-                    //     move: {
-                    //         speed: 5,
-                    //         outModes: {
-                    //             default: "destroy",
-                    //             left: "none",
-                    //         },
-                    //         // straight: true,
-                    //     },
-                    //     zIndex: {
-                    //         value: 20,
-                    //     },
-                    //     rotate: {
-                    //         value: {
-                    //             min: 0,
-                    //             max: 360,
-                    //         },
-                    //         animation: {
-                    //             enable: true,
-                    //             speed: 0,
-                    //             sync: true,
-                    //         },
-                    //     },
-                    // },
                 },
             }}
         />
     );
 };
-export default Pa;
+export default ZerosOnes;
 
