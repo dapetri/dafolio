@@ -1,7 +1,7 @@
-const logotext = "{Initials Here}";
+const logotext = "DP";
 const meta = {
     title: "David Petri",
-    description: "I'm David Petri, a technologist and cybersecurity enthuist.",
+    description: "I'm David Petri, a technologist and machine learning enthuist.",
 };
 
 const introdata = {
