@@ -8,9 +8,9 @@ const introdata = {
     title: "Hello World, I'm David!",
     animated: {
         first: "Computer Scientist",
-        second: "Machine Learning Researcher",
+        second: "Machine Learning Engineer",
         third: "Data Scientist",
-        fourth: "Software Engineer",
+        fourth: "Software Developer",
         // add more if you'd like but make sure to update /src/pages/home/index.js Line 29
     },
     description: "Dedicated technology enthusiast with an insatiable curiosity for unraveling the complexities of our digital world.",
