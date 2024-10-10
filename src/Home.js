@@ -34,7 +34,15 @@ export const Home = () => {
 
     var linkTable = new AsciiTable()
     linkTable.setBorder('░', '═', '═', '═')
-    linkTable.addRow("CV MAP")
+    linkTable.addRow("MAP")
+
+    var linkGitHub = new AsciiTable()
+    linkGitHub.setBorder('░', '═', '═', '═')
+    linkGitHub.addRow("GITHUB")
+
+    var linkTableLinkedIn = new AsciiTable()
+    linkTableLinkedIn.setBorder('░', '═', '═', '═')
+    linkTableLinkedIn.addRow("LINKEDIN")
 
 
     return (
@@ -81,6 +89,24 @@ export const Home = () => {
                                     <Link to="/cvmap">
                                         <Button>
                                             {linkTable.toString()}
+                                        </Button>
+                                    </Link>
+                                </code>
+                            </pre>
+                            <pre>
+                                <code>
+                                    <Link to="https://www.linkedin.com/in/dapetri">
+                                        <Button>
+                                            {linkTableLinkedIn.toString()}
+                                        </Button>
+                                    </Link>
+                                </code>
+                            </pre>
+                            <pre>
+                                <code>
+                                    <Link to="https://www.github.com/dapetri">
+                                        <Button>
+                                            {linkGitHub.toString()}
                                         </Button>
                                     </Link>
                                 </code>
