@@ -13,7 +13,7 @@ export const Map = () => {
     const [lng,] = useState(8.4037);
     const [lat,] = useState(49.0069);
     const [zoom,] = useState(1.9);
-    const [countriesVisited, ] = useState(["DEU",'NLD','ITA',"FRA","ISL", "ESP", "LKA", "AUT", "GBR", "AND", "CHE", "HUN", "ROU", "GRC", "EGY", "MAR", "TUR", "ISR", "SVN", "HRV", "TUN", "USA", "MEX", "CUB", "DOM"])
+    const [countriesVisited, ] = useState(["DEU",'NLD','ITA',"FRA","ISL", "ESP", "LKA", "AUT", "GBR", "AND", "CHE", "HUN", "ROU", "GRC", "EGY", "MAR", "TUR", "ISR", "SVN", "HRV", "TUN", "USA", "MEX", "CUB", "DOM", "LUX", "BEL"])
             
     useEffect(() => {
         if (map.current) return; // initialize map only once
