@@ -44,6 +44,10 @@ export const Home = () => {
     linkTableLinkedIn.setBorder('░', '═', '═', '═')
     linkTableLinkedIn.addRow("LINKEDIN")
 
+    var linkTableLeetCode = new AsciiTable()
+    linkTableLinkedIn.setBorder('░', '═', '═', '═')
+    linkTableLinkedIn.addRow("LEETCODE")
+
 
     return (
         <>
@@ -86,9 +90,9 @@ export const Home = () => {
                         <Body>
                             <pre>
                                 <code>
-                                    <Link to="/cvmap">
+                                    <Link to="https://leetcode.com/u/dapetri/">
                                         <Button>
-                                            {linkTable.toString()}
+                                            {linkTableLeetCode.toString()}
                                         </Button>
                                     </Link>
                                 </code>
@@ -107,6 +111,15 @@ export const Home = () => {
                                     <Link to="https://www.github.com/dapetri">
                                         <Button>
                                             {linkGitHub.toString()}
+                                        </Button>
+                                    </Link>
+                                </code>
+                            </pre>
+                            <pre>
+                                <code>
+                                    <Link to="/cvmap">
+                                        <Button>
+                                            {linkTable.toString()}
                                         </Button>
                                     </Link>
                                 </code>
