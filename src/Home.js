@@ -45,8 +45,8 @@ export const Home = () => {
     linkTableLinkedIn.addRow("LINKEDIN")
 
     var linkTableLeetCode = new AsciiTable()
-    linkTableLinkedIn.setBorder('░', '═', '═', '═')
-    linkTableLinkedIn.addRow("LEETCODE")
+    linkTableLeetCode.setBorder('░', '═', '═', '═')
+    linkTableLeetCode.addRow("LEETCODE")
 
 
     return (
