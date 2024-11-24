@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import styled from "styled-components";
-import AmongUs from './components/particles/AmongUs';
-import img from "./img/fine_dots_1_by_screentone_dnloi8-pre.jpg"
+import AmongUs from '../particles/AmongUs';
+import img from "../../resources/imgs/fine_dots_1_by_screentone_dnloi8-pre.jpg"
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwZXRyaSIsImEiOiJjbGxyd2JiOHQwOXphM2pvaHFuM2thMDY2In0.z70kqY7Uv2rcnKvzJClqUQ';
 
