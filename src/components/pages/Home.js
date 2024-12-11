@@ -119,6 +119,10 @@ const Section = styled.section`
   -webkit-transition: all 0.5s ease-in;
   -o-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
+  pointer-events: none;
+  & > * {
+    pointer-events: auto;
+  }
 `;
 
 const Intro = styled.div`
@@ -128,6 +132,10 @@ const Intro = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 500px;
+  pointer-events: none;
+  & > * {
+    pointer-events: auto;
+  }
 `;
 
 const IntroH2 = styled.h2`
