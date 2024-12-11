@@ -3,6 +3,7 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import styled from "styled-components";
 import AmongUs from "../particles/AmongUs";
 
+// TODO move to secrets
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGFwZXRyaSIsImEiOiJjbGxyd2JiOHQwOXphM2pvaHFuM2thMDY2In0.z70kqY7Uv2rcnKvzJClqUQ";
 
