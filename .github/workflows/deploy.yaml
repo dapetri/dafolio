@@ -26,12 +26,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Extract build version from package.json
+        id: get_version
+        run: echo "VERSION=$(jq -r .version < package.json)" >> $GITHUB_ENV
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/dafolio:latest
+          file: ./Dockerfile
+          target: production
+          tags: ghcr.io/${{ github.repository_owner }}/dafolio:${{ env.VERSION }}
 
       - name: Image digest
         run: echo ${{ steps.build.outputs.digest }}
