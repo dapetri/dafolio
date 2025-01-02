@@ -9,7 +9,6 @@ import axios from "axios";
 
 function App() {
   const [ipData, setIpData] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchIpData = async () => {
@@ -19,15 +18,18 @@ function App() {
         );
         setIpData(response.data);
       } catch (err) {
-        setError("Failed to fetch IP location data.");
+        console.log("Error fetching IP location data:", err);
       }
     };
 
     fetchIpData();
   }, []);
 
-  if (error) return <div>Error: {error}</div>;
-  console.log(ipData);
+  useEffect(() => {
+    if (ipData) {
+      console.log(ipData);
+    }
+  }, [ipData]);
 
   return (
     <>
