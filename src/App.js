@@ -14,7 +14,7 @@ function App() {
     const fetchIpData = async () => {
       try {
         const response = await axios.get(
-          "https://api.ipgeolocation.io/ipgeo?apiKey=d485d0727145414b8fd97fc3a2194a46" // TODO remove api token and add to secrets
+          `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.IPGEOLOCATION_API_KEY}`
         );
         setIpData(response.data);
       } catch (err) {
