@@ -14,7 +14,7 @@ function App() {
     const fetchIpData = async () => {
       try {
         const response = await axios.get(
-          `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.IPGEOLOCATION_API_KEY}`
+          `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_IPGEOLOCATION_API_KEY}`
         );
         setIpData(response.data);
       } catch (err) {

@@ -3,8 +3,7 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import styled from "styled-components";
 import AmongUs from "../particles/AmongUs";
 
-// TODO move to secrets
-mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 export const Map = () => {
   const mapContainer = useRef(null);
