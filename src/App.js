@@ -4,33 +4,8 @@ import clacon2 from "./resources/clacon2.woff2";
 import { Home } from "./components/pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Map } from "./components/pages/Map";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 function App() {
-  const [ipData, setIpData] = useState(null);
-
-  useEffect(() => {
-    const fetchIpData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_IPGEOLOCATION_API_KEY}`
-        );
-        setIpData(response.data);
-      } catch (err) {
-        console.log("Error fetching IP location data:", err);
-      }
-    };
-
-    fetchIpData();
-  }, []);
-
-  useEffect(() => {
-    if (ipData) {
-      console.log(ipData);
-    }
-  }, [ipData]);
-
   return (
     <>
       <Style />
