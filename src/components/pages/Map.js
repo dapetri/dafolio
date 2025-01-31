@@ -16,19 +16,41 @@ export const Map = () => {
   const [zoom] = useState(1.9);
   const [geojsonData, setGeojsonData] = useState(null);
 
+  const addNoise = (value) => {
+    const noise = (Math.random() - 0.5) * 0.1; // ±0.0001 degrees
+    return value + noise;
+  };
+
   useEffect(() => {
     const fetchGeojsonData = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_API_BASE_URL}/locations`
         );
-        setGeojsonData(response.data);
+        const noisyData = {
+          ...response.data,
+          features: response.data.features.map((feature) => ({
+            ...feature,
+            geometry: {
+              ...feature.geometry,
+              coordinates: [
+                addNoise(feature.geometry.coordinates[0]),
+                addNoise(feature.geometry.coordinates[1]),
+              ],
+            },
+          })),
+        };
+
+        setGeojsonData(noisyData);
       } catch (error) {
         console.error("Error fetching GeoJSON data:", error);
       }
     };
 
     fetchGeojsonData();
+    const interval = setInterval(fetchGeojsonData, 10000); // Update every 30 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -42,70 +64,198 @@ export const Map = () => {
   }, [lng, lat, zoom]); // Separate map initialization
 
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
+    if (!map.current || !geojsonData) return;
 
-    // Function to add the data layer
-    const addDataLayer = () => {
-      // Load custom pin image
-      map.current.loadImage(
-        "/pin.png", // Path relative to public folder
-        (error, image) => {
-          if (error) throw error;
+    const addLocationLayer = () => {
+      map.current.loadImage("/pin.png", (error, image) => {
+        if (error) throw error;
 
-          // Add the image to the map
-          if (!map.current.hasImage("custom-pin")) {
-            map.current.addImage("custom-pin", image);
-          }
+        // Add image only if not exists
+        if (!map.current.hasImage("custom-pin")) {
+          map.current.addImage("custom-pin", image);
+        }
 
-          // Remove existing layer and source if they exist
-          if (map.current.getLayer("points")) {
-            map.current.removeLayer("points");
-          }
-          if (map.current.getSource("coordinates")) {
-            map.current.removeSource("coordinates");
-          }
+        // Add source and layer only if they don't exist
+        if (!map.current.getSource("coordinates")) {
+          map.current.addSource("coordinates", {
+            type: "geojson",
+            data: geojsonData || { type: "FeatureCollection", features: [] },
+          });
 
-          // Only add source and layer if we have data
-          if (geojsonData) {
-            map.current.addSource("coordinates", {
-              type: "geojson",
-              data: geojsonData,
+          map.current.addLayer({
+            id: "points",
+            type: "symbol",
+            source: "coordinates",
+            layout: {
+              "icon-image": "custom-pin",
+              "icon-size": 0.07,
+              "icon-allow-overlap": true,
+              "icon-anchor": "bottom",
+            },
+          });
+        } else {
+          // Just update the source data if layer exists
+          map.current.getSource("coordinates").setData(geojsonData);
+        }
+      });
+    };
+
+    if (map.current.loaded()) {
+      addLocationLayer();
+    } else {
+      map.current.once("load", addLocationLayer);
+    }
+  }, [geojsonData]);
+
+  useEffect(() => {
+    if (!map.current) return;
+
+    let isInitialLoad = true; // Flag for first load
+
+    const updateUserLocation = (longitude, latitude) => {
+      if (!map.current.getSource("user-location")) {
+        map.current.addSource("user-location", {
+          type: "geojson",
+          data: {
+            type: "Feature",
+            geometry: {
+              type: "Point",
+              coordinates: [longitude, latitude],
+            },
+          },
+        });
+
+        map.current.addLayer({
+          id: "user-point",
+          type: "symbol",
+          source: "user-location",
+          layout: {
+            "icon-image": "user-location",
+            "icon-size": 0.07,
+            "icon-allow-overlap": true,
+            "icon-anchor": "bottom",
+          },
+        });
+      } else {
+        map.current.getSource("user-location").setData({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [longitude, latitude],
+          },
+        });
+      }
+      map.current.moveLayer("user-point");
+
+      if (isInitialLoad) {
+        setTimeout(() => {
+          map.current.flyTo({
+            center: [longitude, latitude],
+            zoom: 2,
+            duration: 3000, // Duration in milliseconds (3 seconds)
+            speed: 0.5, // Lower speed value makes movement slower
+          });
+          isInitialLoad = false;
+        }, 3000);
+      }
+    };
+
+    const addUserLocation = () => {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+
+            map.current.loadImage("/pointer.png", (error, image) => {
+              if (error) throw error;
+              if (!map.current.hasImage("user-location")) {
+                map.current.addImage("user-location", image);
+              }
+              updateUserLocation(longitude, latitude);
             });
-
-            map.current.addLayer({
-              id: "points",
-              type: "symbol",
-              source: "coordinates",
-              layout: {
-                "icon-image": "custom-pin", // Use our custom pin
-                "icon-size": 0.08,
-                "icon-allow-overlap": true,
-                "icon-anchor": "bottom",
-              },
-            });
+          },
+          (error) => {
+            console.error("Error getting location:", error);
           }
+        );
+      }
+    };
+
+    addUserLocation();
+
+    return () => {
+      if (map.current?.getLayer("user-point")) {
+        map.current.removeLayer("user-point");
+      }
+      if (map.current?.getSource("user-location")) {
+        map.current.removeSource("user-location");
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!map.current) return;
+
+    // Create legend
+    const legend = document.createElement("div");
+    legend.style.cssText = `
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 7px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      z-index: 1;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+    `;
+
+    // Add pin legend item
+    const pinItem = document.createElement("div");
+    pinItem.style.cssText = `
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    `;
+    pinItem.innerHTML = `
+      <img src="/pin.png" style="width: 20px; height: 20px; margin-right: 8px;"/>
+      <span>Historical Accesses</span>
+    `;
+    legend.appendChild(pinItem);
+
+    // Add pointer legend item if geolocation is available
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        () => {
+          const pointerItem = document.createElement("div");
+          pointerItem.style.cssText = `
+            display: flex;
+            align-items: center;
+          `;
+          pointerItem.innerHTML = `
+            <img src="/pointer.png" style="width: 20px; height: 20px; margin-right: 8px;"/>
+            <span>You</span>
+          `;
+          legend.appendChild(pointerItem);
+        },
+        () => {
+          // Handle permission denial silently
         }
       );
-    };
-
-    // If map is already loaded, add data layer immediately
-    if (map.current.loaded()) {
-      addDataLayer();
-    } else {
-      // Otherwise wait for load event
-      map.current.once("load", addDataLayer);
     }
 
-    // Cleanup remains the same
+    // Add legend to map
+    map.current.getContainer().appendChild(legend);
+
+    // Cleanup on unmount
     return () => {
-      if (map.current?.getLayer("points")) {
-        map.current.removeLayer("points");
-      }
-      if (map.current?.getSource("coordinates")) {
-        map.current.removeSource("coordinates");
+      const container = map.current?.getContainer();
+      if (container && legend.parentNode === container) {
+        container.removeChild(legend);
       }
     };
-  }, [geojsonData]);
+  }, []);
 
   return (
     <>
