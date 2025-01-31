@@ -1,11 +1,20 @@
+import React, { useEffect } from "react";
+import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./components/pages/Home";
+import { Map } from "./components/pages/Map";
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import clacon2 from "./resources/clacon2.woff2";
-import { Home } from "./components/pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Map } from "./components/pages/Map";
 
 function App() {
+  useEffect(() => {
+    const sayHello = async () => {
+      await axios.get(`${process.env.REACT_APP_API_BASE_URL}/`);
+    };
+    sayHello();
+  }, []);
+
   return (
     <>
       <Style />
