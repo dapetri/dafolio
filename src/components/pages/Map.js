@@ -167,21 +167,15 @@ export const Map = () => {
     };
 
     const postLocationData = async (data) => {
-      try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_API_BASE_URL}/locations`,
-          data,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        console.log("Location data posted successfully:", response.data);
-      } catch (error) {
-        console.error("Error posting location data:", error);
-      }
+      await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/locations`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     };
 
     const addUserLocation = () => {
