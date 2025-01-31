@@ -17,7 +17,7 @@ export const Map = () => {
   const [geojsonData, setGeojsonData] = useState(null);
 
   const addNoise = (value) => {
-    const noise = (Math.random() - 0.5) * 0.1; // ±0.0001 degrees
+    const noise = (Math.random() - 0.5) * 0.08; // ±0.0001 degrees
     return value + noise;
   };
 
@@ -88,7 +88,7 @@ export const Map = () => {
             source: "coordinates",
             layout: {
               "icon-image": "custom-pin",
-              "icon-size": 0.07,
+              "icon-size": 0.065,
               "icon-allow-overlap": true,
               "icon-anchor": "bottom",
             },
@@ -97,6 +97,8 @@ export const Map = () => {
           // Just update the source data if layer exists
           map.current.getSource("coordinates").setData(geojsonData);
         }
+        const firstLayerId = map.current.getStyle().layers[0].id;
+        map.current.moveLayer("points", firstLayerId);
       });
     };
 
@@ -131,7 +133,7 @@ export const Map = () => {
           source: "user-location",
           layout: {
             "icon-image": "user-location",
-            "icon-size": 0.07,
+            "icon-size": 0.075,
             "icon-allow-overlap": true,
             "icon-anchor": "bottom",
           },
@@ -156,7 +158,7 @@ export const Map = () => {
             speed: 0.5, // Lower speed value makes movement slower
           });
           isInitialLoad = false;
-        }, 3000);
+        }, 2000);
       }
     };
 
