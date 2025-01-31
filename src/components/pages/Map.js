@@ -92,13 +92,16 @@ export const Map = () => {
               "icon-allow-overlap": true,
               "icon-anchor": "bottom",
             },
+            minzoom: 0, // Show at minimum zoom level
+            maxzoom: 22, // Show at maximum zoom level
           });
         } else {
           // Just update the source data if layer exists
           map.current.getSource("coordinates").setData(geojsonData);
         }
-        const firstLayerId = map.current.getStyle().layers[0].id;
-        map.current.moveLayer("points", firstLayerId);
+        if (map.current.getLayer("user-point")) {
+          map.current.moveLayer("user-point");
+        }
       });
     };
 
@@ -137,6 +140,8 @@ export const Map = () => {
             "icon-allow-overlap": true,
             "icon-anchor": "bottom",
           },
+          minzoom: 0, // Show at minimum zoom level
+          maxzoom: 22, // Show at maximum zoom level
         });
       } else {
         map.current.getSource("user-location").setData({
@@ -147,7 +152,6 @@ export const Map = () => {
           },
         });
       }
-      map.current.moveLayer("user-point");
 
       if (isInitialLoad) {
         setTimeout(() => {
