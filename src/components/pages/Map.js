@@ -198,7 +198,6 @@ export const Map = () => {
               isp: null,
             };
 
-            console.log("User location data:", locationData);
             map.current.loadImage("/pointer.png", (error, image) => {
               if (error) throw error;
               if (!map.current.hasImage("user-location")) {
