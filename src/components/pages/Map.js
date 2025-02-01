@@ -16,45 +16,9 @@ export const Map = () => {
   const [zoom] = useState(1.9);
   const [geojsonData, setGeojsonData] = useState(null);
 
-  const addNoise = (value) => {
-    const noise = (Math.random() - 0.5) * 0.08; // ±0.0001 degrees
-    return value + noise;
-  };
-
+  // Map Init
   useEffect(() => {
-    const fetchGeojsonData = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/locations`
-        );
-        const noisyData = {
-          ...response.data,
-          features: response.data.features.map((feature) => ({
-            ...feature,
-            geometry: {
-              ...feature.geometry,
-              coordinates: [
-                addNoise(feature.geometry.coordinates[0]),
-                addNoise(feature.geometry.coordinates[1]),
-              ],
-            },
-          })),
-        };
-
-        setGeojsonData(noisyData);
-      } catch (error) {
-        console.error("Error fetching GeoJSON data:", error);
-      }
-    };
-
-    fetchGeojsonData();
-    const interval = setInterval(fetchGeojsonData, 10000); // Update every 30 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/dapetri/clltnwgys00b201nz95d3cwp6",
@@ -63,9 +27,25 @@ export const Map = () => {
     });
   }, [lng, lat, zoom]); // Separate map initialization
 
+  // Query new locations every 10s
   useEffect(() => {
-    if (!map.current || !geojsonData) return;
+    const fetchGeojsonData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/locations`
+        );
 
+        setGeojsonData(response.data);
+      } catch (error) {
+        console.error("Error fetching GeoJSON data:", error);
+      }
+    };
+    fetchGeojsonData();
+    const interval = setInterval(fetchGeojsonData, 10000); // Update every 10 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     const addLocationLayer = () => {
       map.current.loadImage("/pin.png", (error, image) => {
         if (error) throw error;
@@ -92,8 +72,6 @@ export const Map = () => {
               "icon-allow-overlap": true,
               "icon-anchor": "bottom",
             },
-            minzoom: 0, // Show at minimum zoom level
-            maxzoom: 22, // Show at maximum zoom level
           });
         } else {
           // Just update the source data if layer exists
@@ -105,10 +83,14 @@ export const Map = () => {
       });
     };
 
-    if (map.current.loaded()) {
+    if (map.current.loaded() && geojsonData) {
       addLocationLayer();
     } else {
-      map.current.once("load", addLocationLayer);
+      map.current.once("load", () => {
+        if (geojsonData) {
+          addLocationLayer();
+        }
+      });
     }
   }, [geojsonData]);
 
@@ -230,7 +212,6 @@ export const Map = () => {
   useEffect(() => {
     if (!map.current) return;
 
-    // Create legend
     const legend = document.createElement("div");
     legend.style.cssText = `
       position: absolute;
@@ -245,7 +226,6 @@ export const Map = () => {
       border-radius: 6px;
     `;
 
-    // Add pin legend item
     const pinItem = document.createElement("div");
     pinItem.style.cssText = `
       display: flex;
@@ -258,7 +238,6 @@ export const Map = () => {
     `;
     legend.appendChild(pinItem);
 
-    // Add pointer legend item if geolocation is available
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         () => {
@@ -273,16 +252,12 @@ export const Map = () => {
           `;
           legend.appendChild(pointerItem);
         },
-        () => {
-          // Handle permission denial silently
-        }
+        () => {}
       );
     }
 
-    // Add legend to map
     map.current.getContainer().appendChild(legend);
 
-    // Cleanup on unmount
     return () => {
       const container = map.current?.getContainer();
       if (container && legend.parentNode === container) {
