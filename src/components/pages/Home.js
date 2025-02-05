@@ -81,7 +81,16 @@ export const Home = () => {
 
             <Space>* click *</Space>
             <Body>
+              <Space />
+              <Space />
               <div className="button-container">
+                <pre>
+                  <code>
+                    <Link to="/map">
+                      <Button>{linkTableMap.toString()}</Button>
+                    </Link>
+                  </code>
+                </pre>
                 <pre>
                   <code>
                     <div className="centered-button google-blink">
@@ -91,15 +100,8 @@ export const Home = () => {
                     </div>
                   </code>
                 </pre>
-                <Space />
-                <pre>
-                  <code>
-                    <Link to="/map">
-                      <Button>{linkTableMap.toString()}</Button>
-                    </Link>
-                  </code>
-                </pre>
               </div>
+              <Space />
               <pre>
                 <code>
                   <Link to="https://leetcode.com/u/dapetri/">

@@ -228,13 +228,11 @@
 .centered-button {
 position: absolute;
 left: 50%;
-top: 33%;
+top: 15%;
 transform: translateX(-50%);
+  pointer-events: none; /* Make it click-through */
 }
 
-/* .google-blink {
-  animation: googleBlink 2s infinite;
-} */
 
 @keyframes googleBlink {
     0% { color: #4285F4; opacity: 1; }   /* Google Blue */
