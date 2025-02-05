@@ -219,3 +219,31 @@
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
 }
+
+.button-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+.centered-button {
+position: absolute;
+left: 50%;
+top: 33%;
+transform: translateX(-50%);
+}
+
+/* .google-blink {
+  animation: googleBlink 2s infinite;
+} */
+
+@keyframes googleBlink {
+    0% { color: #4285F4; opacity: 1; }   /* Google Blue */
+    12.5% { color: #4285F4; opacity: 0; }   /* Google Blue */
+    25% { color: #EA4335; opacity: 1; }  /* Google Red */
+    37.5% { color: #EA4335; opacity: 0; }  /* Google Red */
+    50% { color: #FBBC05; opacity: 1; }  /* Google Yellow */
+    62.5% { color: #FBBC05; opacity: 0; }  /* Google Yellow */
+    75% { color: #34A853; opacity: 1; }  /* Google Green */
+    87.5% { color: #34A853; opacity: 0; }  /* Google Green */
+    100% { color: #4285F4; opacity: 1; }
+  }

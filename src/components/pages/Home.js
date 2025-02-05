@@ -26,9 +26,14 @@ export const Home = () => {
     table.addRow(line.trim());
   });
 
-  var linkTable = new AsciiTable();
-  linkTable.setBorder("░", "═", "═", "═");
-  linkTable.addRow("MAP");
+  var linkTableMap = new AsciiTable();
+  linkTableMap.setBorder("░", "═", "═", "═");
+  linkTableMap.addRow("MAP");
+
+  var linkTableMapBlink = new AsciiTable();
+  linkTableMapBlink.setBorder(" ", " ", "X", "X");
+  linkTableMapBlink.addRow("      ");
+  linkTableMapBlink.addRow("        ");
 
   var linkGitHub = new AsciiTable();
   linkGitHub.setBorder("░", "═", "═", "═");
@@ -76,6 +81,25 @@ export const Home = () => {
 
             <Space>* click *</Space>
             <Body>
+              <div className="button-container">
+                <pre>
+                  <code>
+                    <div className="centered-button google-blink">
+                      <Button style={{ animation: "googleBlink 12s infinite" }}>
+                        {linkTableMapBlink.toString()}
+                      </Button>
+                    </div>
+                  </code>
+                </pre>
+                <Space />
+                <pre>
+                  <code>
+                    <Link to="/map">
+                      <Button>{linkTableMap.toString()}</Button>
+                    </Link>
+                  </code>
+                </pre>
+              </div>
               <pre>
                 <code>
                   <Link to="https://leetcode.com/u/dapetri/">
@@ -94,13 +118,6 @@ export const Home = () => {
                 <code>
                   <Link to="https://www.github.com/dapetri">
                     <Button>{linkGitHub.toString()}</Button>
-                  </Link>
-                </code>
-              </pre>
-              <pre>
-                <code>
-                  <Link to="/map">
-                    <Button>{linkTable.toString()}</Button>
                   </Link>
                 </code>
               </pre>
