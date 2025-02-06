@@ -71,6 +71,29 @@ export const Map = () => {
               "icon-size": 0.065,
               "icon-allow-overlap": true,
               "icon-anchor": "bottom",
+              "text-field": [
+                "case",
+                [">", ["get", "count"], 1],
+                ["get", "count"],
+                "",
+              ],
+              "text-size": 12,
+              "text-offset": [0, 1], // Adjust the offset to position the text to the right of the pin
+              "text-anchor": "bottom",
+              "text-allow-overlap": true,
+              "text-ignore-placement": true,
+            },
+            paint: {
+              "text-color": "#000000", // Adjust the color as needed
+              "text-opacity": [
+                "interpolate",
+                ["linear"],
+                ["zoom"],
+                0,
+                0,
+                10,
+                1,
+              ],
             },
           });
         } else {
